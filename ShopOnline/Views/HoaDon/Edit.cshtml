@@ -1,0 +1,162 @@
+﻿@model ShopOnline.Entities.HoaDon
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutPanelo.cshtml";
+}
+
+
+<link href="~/Content/css/jquery-ui.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="~/Content/css/style-admin.css" />
+<link href='http://fonts.googleapis.com/css?family=Belgrano' rel='stylesheet' type='text/css'>
+<link href="~/Content/css/demos.css" rel="stylesheet" />
+<link href="~/Content/css/jquery.ui.all.css" rel="stylesheet" />
+<!-- jQuery file -->
+<script src="~/Scripts/js/jquery.min.js"></script>
+<script src="~/Scripts/js/jquery.tabify.js" type="text/javascript" charset="utf-8"></script>
+
+<script src="~/Scripts/js/jquery-1.8.3.js"></script>
+<script src="~/Scripts/js/jquery.ui.core.js"></script>
+<script src="~/Scripts/js/jquery.ui.datepicker.js"></script>
+<script src="~/Scripts/js/jquery.ui.widget.js"></script>
+<script type="text/javascript">
+
+    $(function () {
+        $("#datepicker").datepicker({
+            changeMonth: true,
+            changeYear: true
+        });
+    });
+
+
+    var $ = jQuery.noConflict();
+    $(function () {
+        $('#tabsmenu').tabify();
+        $(".toggle_container").hide();
+        $(".trigger").click(function () {
+            $(this).toggleClass("active").next().slideToggle("slow");
+            return false;
+        });
+    });
+
+</script>
+
+
+
+
+@section DS
+{
+    <ul>
+        <li><a href="~/KhachHang/List">Khách hàng</a></li>
+        <li><a href="~/NhanVien/List">Nhân viên</a></li>
+        <li><a href="~/Sach/List">Sách</a></li>
+        <li><a href="~/TacGia/List">Tác giả</a></li>
+        <li><a href="~/TheLoai/List">Thể loại</a></li>
+        <li><a href="~/DanhMuc/List">Danh mục</a></li>
+        <li><a href="~/ChiTietHoaDon/List">Chi tiết hóa đơn</a></li>
+        <li class="chon"><a href="~/HoaDon/List">Hóa đơn</a></li>
+        <li><a href="~/QuangCao/List">Quảng cáo</a></li>
+        <li><a href="~/SangTac/List">Sáng tác</a></li>
+        <li><a href="~/NXB/List">Nhà xuất bản</a></li>
+    </ul>
+}
+
+
+@using (Html.BeginForm("EditAction", "HoaDon"))
+{
+    <ul id="tabsmenu" class="tabsmenu">
+        <li class="active"><a href="#tab1">Sửa </a></li>
+    </ul>
+    <div id="tab1" class="tabcontent">
+
+        <div class="form">
+
+            <div class="form_row">
+                
+                @Html.HiddenFor(model => model.MaKH)
+                @Html.HiddenFor(model => model.MaHoaDon)
+                @*@Html.HiddenFor(model => model.MaNhanVien)*@
+            </div>
+
+            @{
+                if(Model.MaNhanVien!=null)
+                {
+                    <div class="form_row">
+                        <label>Khách hàng:</label>
+                
+                        @Html.DisplayFor(model => model.KhachHang.TenKH, new { @class = "form_input" })
+                
+                    </div>
+
+                    <div class="form_row">
+                        <label>Nhân viên:</label>
+                        @Html.DisplayFor(model => model.NhanVien.TenNhanVien, new { @class = "form_input" })
+                
+                    </div>
+
+         
+
+                    <div class="form_row">
+                        <label>Thời gian:</label>
+
+                        <div class="input-bg">
+                            @{
+                                if (Model == null)
+                                {
+                                    <input type="text" id="datepicker" class="form_input" name="ThoiGian" value="">
+                                }
+                                else
+                                {
+                                    <input type="text" id="datepicker" class="form_input" name="ThoiGian" value="@Model.ThoiGian">
+                                }
+                            }
+                            <span>@Html.ValidationMessageFor(model => model.ThoiGian, "", new { @class = "error" })</span>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="form_row">
+                        <label>Khách hàng:</label>
+                
+                        @Html.DisplayFor(model => model.KhachHang.TenKH, new { @class = "form_input" })
+                
+                    </div>
+
+                    <div class="form_row">
+                        <label>Nhân viên:</label>
+                       @Html.DropDownList("MaNhanVien", (SelectList)ViewBag.MaNhanVien, new { @class = "form_input" })
+                    </div>
+
+         
+
+                    <div class="form_row">
+                        <label>Thời gian:</label>
+
+                        <div class="input-bg">
+                            @{
+                                if (Model == null)
+                                {
+                                    <input type="text" id="datepicker" class="form_input" name="ThoiGian" value="">
+                                }
+                                else
+                                {
+                                    <input type="text" id="datepicker" class="form_input" name="ThoiGian" value="@Model.ThoiGian">
+                                }
+                            }
+                            <span>@Html.ValidationMessageFor(model => model.ThoiGian, "", new { @class = "error" })</span>
+                        </div>
+                    </div>
+                
+                }
+            }
+            
+
+            <div id="btn-submit">
+                <input type="submit" class="form_submit" value="Lưu" />
+            </div>
+
+            <div class="clear"></div>
+        </div>
+    </div>
+}

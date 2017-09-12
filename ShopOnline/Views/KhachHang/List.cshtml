@@ -1,0 +1,134 @@
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<ShopOnline.Entities.KhachHang>
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_LayoutPanelo.cshtml";
+}
+<link href="~/Content/css/jquery-ui.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="~/Content/css/style-admin.css" />
+<link href='http://fonts.googleapis.com/css?family=Belgrano' rel='stylesheet' type='text/css'>
+<link href="~/Content/css/demos.css" rel="stylesheet" />
+<link href="~/Content/css/jquery.ui.all.css" rel="stylesheet" />
+<!-- jQuery file -->
+<script src="~/Scripts/js/jquery.min.js"></script>
+<script src="~/Scripts/js/jquery.tabify.js" type="text/javascript" charset="utf-8"></script>
+
+<script src="~/Scripts/js/jquery-1.8.3.js"></script>
+<script src="~/Scripts/js/jquery.ui.core.js"></script>
+<script src="~/Scripts/js/jquery.ui.datepicker.js"></script>
+<script src="~/Scripts/js/jquery.ui.widget.js"></script>
+<script type="text/javascript">
+
+    $(function () {
+        $("#datepicker").datepicker({
+            changeMonth: true,
+            changeYear: true
+        });
+    });
+   
+    
+    var $ = jQuery.noConflict();
+    $(function () {
+        $('#tabsmenu').tabify();
+        $(".toggle_container").hide();
+        $(".trigger").click(function () {
+            $(this).toggleClass("active").next().slideToggle("slow");
+            return false;
+        });
+    });
+  
+      function toggle(source) {
+          checkboxes = document.getElementsByName('studentRecordDeletebyId');
+          for (var i = 0, n = checkboxes.length; i < n; i++) {
+              checkboxes[i].checked = source.checked;
+          }
+      }
+ 
+  
+</script>
+
+<h2>Khách hàng</h2>
+@section DS
+{
+    <ul>
+        <li class="chon"><a href="~/KhachHang/List">Khách hàng</a></li>
+        <li><a href="~/NhanVien/List">Nhân viên</a></li>
+        <li><a href="~/Sach/List">Sách</a></li>
+        <li><a href="~/TacGia/List">Tác giả</a></li>
+        <li><a href="~/TheLoai/List">Thể loại</a></li>
+        <li><a href="~/DanhMuc/List">Danh mục</a></li>
+        <li><a href="~/ChiTietHoaDon/List">Chi tiết hóa đơn</a></li>
+        <li><a href="~/HoaDon/List">Hóa đơn</a></li>
+        <li><a href="~/QuangCao/List">Quảng cáo</a></li>
+        <li><a href="~/SangTac/List">Sáng tác</a></li>
+        <li><a href="~/NXB/List">Nhà xuất bản</a></li>
+    </ul>
+}
+@using (Html.BeginForm("deleteRow", "KhachHang", FormMethod.Post))
+{
+
+<table id="rounded-corner">
+    <thead>
+
+        <tr>
+            <th width="13"><input type="checkbox" id=" checkAll" onclick="toggle(this)" /></th>
+            <th colspan="2">Tên khách hàng</th>
+            <th colspan="2">SĐT</th>
+            <th colspan="2">Email</th>
+            <th colspan="2">Giới tính</th>
+            <th colspan="2">Địa chỉ</th>
+            <th colspan="2">Ngày sinh</th>
+            <th colspan="2">Tên đăng nhập</th>
+            <th>Sửa</th>
+            <th>Xóa</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <td colspan="16"></td>
+        </tr>
+    </tfoot>
+    <tbody>
+        
+        @foreach (var item in Model)
+        {
+              <tr class="odd">
+                  <td><input type="checkbox" class="checkBox" name="studentRecordDeletebyId" id="studentRecordDeletebyId" value="@item.MaKH" /> </td>
+                    <td colspan="2">@item.TenKH</td>
+                    <td colspan="2">@item.SoDienThoai</td>
+                    <td colspan="2">@item.Email</td>
+                    
+                   @{
+                        if (item.GioiTinh == false)
+                        {
+                            <td colspan="2">Nữ</td>
+                        }
+                        else
+                        {
+                            <td colspan="2">Nam</td>
+                        }
+                   }
+                    
+                    <td colspan="2">@item.DiaChi</td>
+                    <td colspan="2">@item.NgaySinh</td>
+                    <td colspan="2">@item.TenDangNhap</td>
+                    <td><a href="~/KhachHang/Edit/@item.MaKH "><img src="/images/edit.png" alt="" title="" border="0" /></a></td>
+                    <td><a href="~/KhachHang/Delete/@item.MaKH"><img src="/images/trash.gif" alt="" title="" border="0" /></a></td>
+                </tr>
+           
+        }
+    </tbody>
+</table>
+    <div class="form_sub_buttons">
+        
+      <a><input type="submit" class="btnDelete-selected" value="Xóa" /></a>
+       
+    </div>
+}
+<div class="form_sub_buttons">
+
+    <a href="~/KhachHang/Add"><input type="submit" class="btnAdd" value="Thêm" /></a>
+
+</div>
+@Html.PagedListPager(Model, page => Url.Action("List", new { page }))

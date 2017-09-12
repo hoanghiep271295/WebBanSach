@@ -1,0 +1,107 @@
+﻿@model ShopOnline.Entities.Sach
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutPanelo.cshtml";
+}
+@section DS
+{
+    <ul>
+        <li><a href="~/KhachHang/List">Khách hàng</a></li>
+        <li><a href="~/NhanVien/List">Nhân viên</a></li>
+        <li class="chon"><a href="~/Sach/List">Sách</a></li>
+        <li><a href="~/TacGia/List">Tác giả</a></li>
+        <li><a href="~/TheLoai/List">Thể loại</a></li>
+        <li><a href="~/DanhMuc/List">Danh mục</a></li>
+        <li><a href="~/ChiTietHoaDon/List">Chi tiết hóa đơn</a></li>
+        <li><a href="~/HoaDon/List">Hóa đơn</a></li>
+        <li><a href="~/QuangCao/List">Quảng cáo</a></li>
+        <li><a href="~/SangTac/List">Sáng tác</a></li>
+        <li><a href="~/NXB/List">Nhà xuất bản</a></li>
+    </ul>
+}
+@*@if (Session["TenDangNhap"] == null && Session["MatKhau"] == null)
+{
+
+    Response.Redirect("~/Admin/Login");
+}*@
+
+
+
+
+@using (Html.BeginForm("EditAction", "Sach", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    <ul id="tabsmenu" class="tabsmenu">
+        <li class="active"><a href="#tab1">Sửa </a></li>
+    </ul>
+    <div id="tab1" class="tabcontent">
+
+        <div class="form">
+           
+            <div class="form_row">
+               
+                @Html.HiddenFor(model => model.MaSach)
+            </div>
+
+            <div class="form_row">
+                <label>Tên Sách:</label>
+                @Html.EditorFor(model => model.TenSach, new { @class = "form_input" })
+                <span>@Html.ValidationMessageFor(model => model.TenSach, "", new { @class = "error" })</span>
+            </div>
+
+            <div class="form_row">
+                <label>Ảnh Sách:</label>
+                <input type="file" class="form_input" name="Anh" id="Anh" value="@Model.Anh" style="position:relative; cursor:pointer;" accept="image/*" />
+                <span>@Html.ValidationMessageFor(model => model.Anh, "", new { @class = "error" })</span>
+            </div>
+
+           
+
+            <div class="form_row">
+                <label>Tình trạng khuyến mại:</label>
+                @Html.EditorFor(model => model.TinhTrangKM, new { @class = "form_input" })
+                <span>@Html.ValidationMessageFor(model => model.TinhTrangKM, "", new { @class = "error" })</span>
+            </div>
+
+            <div class="form_row">
+                <label>Đơn giá:</label>
+                @Html.EditorFor(model => model.DonGia, new { @class = "form_input" })
+                <span>@Html.ValidationMessageFor(model => model.DonGia, "", new { @class = "error" })</span>
+            </div>
+
+            <div class="form_row">
+                <label>Số lượng còn:</label>
+                @Html.EditorFor(model => model.SoLuongCon, new { @class = "form_input" })
+                <span>@Html.ValidationMessageFor(model => model.SoLuongCon, "", new { @class = "error" })</span>
+            </div>
+
+            <div class="form_row">
+                <label>Tên thể loại:</label>
+                @Html.DropDownListFor(model => model.MaTheLoai, null, new { @class = "form_input" })
+            </div>
+
+            <div class="form_row">
+                <label>Tên danh mục:</label>
+                @Html.DropDownListFor(model => model.MaDanhMuc, null, new { @class = "form_input" })
+
+            </div>
+
+            <div class="form_row">
+                <label>Tên NXB:</label>
+                @Html.DropDownListFor(model => model.MaNXB, null, new { @class = "form_input" })
+            </div>
+
+            <div class="form_row">
+                <label>Mô tả:</label>
+                @Html.TextAreaFor(model => model.Mota, new { @class = "form_textarea" })
+                <span>@Html.ValidationMessageFor(model => model.Mota, "", new { @class = "error" })</span>
+            </div>
+
+            <div id="btn-submit">
+                <input type="submit" class="form_submit" value="Lưu" />
+            </div>
+
+            <div class="clear"></div>
+        </div>
+    </div>
+}

@@ -1,0 +1,170 @@
+﻿@*@model IEnumerable<ShopOnline.Entities.Sach>*@
+@model ShopOnline.Entities.Sach
+
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_LayoutPanelo.cshtml";
+}
+
+
+@section DS
+{
+    <ul>
+        <li><a href="~/KhachHang/List">Khách hàng</a></li>
+        <li><a href="~/NhanVien/List">Nhân viên</a></li>
+        <li class="chon"><a href="~/Sach/List">Sách</a></li>
+        <li><a href="~/TacGia/List">Tác giả</a></li>
+        <li><a href="~/TheLoai/List">Thể loại</a></li>
+        <li><a href="~/DanhMuc/List">Danh mục</a></li>
+        <li><a href="~/ChiTietHoaDon/List">Chi tiết hóa đơn</a></li>
+        <li><a href="~/HoaDon/List">Hóa đơn</a></li>
+        <li><a href="~/QuangCao/List">Quảng cáo</a></li>
+        <li><a href="~/SangTac/List">Sáng tác</a></li>
+        <li><a href="~/NXB/List">Nhà xuất bản</a></li>
+    </ul>
+}
+
+@*@if (Session["TenDangNhap"] == null && Session["MatKhau"] == null)
+{
+
+    Response.Redirect("~/Admin/Login");
+}*@
+
+@using (Html.BeginForm("AddAction", "Sach", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    <ul id="tabsmenu" class="tabsmenu">
+        <li class="active"><a href="#tab1">Thêm </a></li>
+    </ul>
+    <div id="tab1" class="tabcontent">
+
+        <div class="form">
+            @{
+               if(@Session["Ok"] ==null)
+            {
+                <div class="form_row">
+                    <label>Tên Sách:</label>
+                    <input type="text" class="form_input" name="TenSach" id="TenSach" value="" />
+                    @*<div class="error">@ViewBag.msg_err</div>*@
+                    <span>@ViewBag.msg_err
+                    @Html.ValidationMessageFor(model => model.TenSach, "", new { @class = "error" })</span>
+                
+                </div>
+
+
+                <div class="form_row">
+                    <label>Ảnh Sách:</label>
+                    <input type="file" class="form_input" name="Anh" id="Anh" value="" style="position:relative; cursor:pointer;" />
+                    <span>@Html.ValidationMessageFor(model => model.Anh, "", new { @class = "error" })</span>
+                </div>
+
+                <div class="form_row">
+                    <label>Số lượng còn:</label>
+                    <input type="number" min="0" class="form_input" name="SoLuongCon" id="SoLuongCon" value="" />
+                    <span>@Html.ValidationMessageFor(model => model.SoLuongCon, "", new { @class = "error" })</span>
+                </div>
+
+                <div class="form_row">
+                    <label>Tình trạng khuyến mại:</label>
+                    <input type="number" min="0" class="form_input" name="TinhTrangKM" id="TinhTrangKM" value="0" />
+                    <span>@Html.ValidationMessageFor(model => model.TinhTrangKM, "", new { @class = "error" })</span>
+                </div>
+
+                <div class="form_row">
+                    <label>Đơn giá:</label>
+                    <input type="text" class="form_input" name="DonGia" id="DonGia" value="" />
+                    <span>@Html.ValidationMessageFor(model => model.DonGia, "", new { @class = "error" })</span>
+                </div>
+
+
+                <div class="form_row">
+                    <label>Tên thể loại:</label>
+
+                    @Html.DropDownList("MaTheLoai", (SelectList)ViewBag.MaTheLoai, new { @class = "form_input", name = "MaTheLoai", id = "MaTheLoai" })
+
+                </div>
+
+                <div class="form_row">
+                    <label>Tên danh mục:</label>
+
+                    @Html.DropDownList("MaDanhMuc", (SelectList)ViewBag.MaDanhMuc, new { @class = "form_input", name = "MaDanhMuc", id = "MaDanhMuc" })
+
+                </div>
+
+                <div class="form_row">
+                    <label>Tên NXB:</label>
+
+                    @Html.DropDownList("MaNXB", (SelectList)ViewBag.MaNXB, new { @class = "form_input", name = "MaNXB", id = "MaNXB" })
+
+                </div>
+
+                <div class="form_row">
+                    <label>Mô tả:</label>
+                    <textarea class="form_textarea" name="Mota" id="Mota"></textarea>
+                    <span>@Html.ValidationMessageFor(model => model.Mota, "", new { @class = "error" })</span>
+                </div>
+            }
+            else
+            {
+                 <div class="form_row">
+                    <label>Tên Sách:</label>
+                    @Html.EditorFor(model => model.TenSach, new { @class = "form_input" })
+                    <span>@Html.ValidationMessageFor(model => model.TenSach, "", new { @class = "error" })</span>
+                </div>
+
+                <div class="form_row">
+                    <label>Ảnh Sách:</label>
+                    <input type="file" class="form_input" name="Anh" id="Anh" value="" style="position:relative; cursor:pointer;" accept="image/*" />
+                    <span>@Html.ValidationMessageFor(model => model.Anh, "", new { @class = "error" })</span>
+                </div>
+
+           
+
+                <div class="form_row">
+                    <label>Tình trạng khuyến mại:</label>
+                    @Html.EditorFor(model => model.TinhTrangKM, new { @class = "form_input" })
+                    <span>@Html.ValidationMessageFor(model => model.TinhTrangKM, "", new { @class = "error" })</span>
+                </div>
+
+                <div class="form_row">
+                    <label>Đơn giá:</label>
+                    @Html.EditorFor(model => model.DonGia, new { @class = "form_input" })
+                    <span>@Html.ValidationMessageFor(model => model.DonGia, "", new { @class = "error" })</span>
+                </div>
+
+                <div class="form_row">
+                    <label>Số lượng còn:</label>
+                    @Html.EditorFor(model => model.SoLuongCon, new { @class = "form_input" })
+                    <span>@Html.ValidationMessageFor(model => model.SoLuongCon, "", new { @class = "error" })</span>
+                </div>
+
+                <div class="form_row">
+                    <label>Tên thể loại:</label>
+                    @Html.DropDownList("MaTheLoai", (SelectList)ViewBag.MaTheLoai, new { @class = "form_input" })
+                </div>
+
+                <div class="form_row">
+                    <label>Tên danh mục:</label>
+                    @Html.DropDownList("MaDanhMuc", (SelectList)ViewBag.MaDanhMuc, new { @class = "form_input" })
+
+                </div>
+
+                <div class="form_row">
+                    <label>Tên NXB:</label>
+                    @Html.DropDownList("MaNXB", (SelectList)ViewBag.MaNXB, new { @class = "form_input" })
+                </div>
+
+                <div class="form_row">
+                    <label>Mô tả:</label>
+                    @Html.EditorFor(model => model.Mota, new { @class = "form_textarea" })
+                    <span>@Html.ValidationMessageFor(model => model.Mota, "", new { @class = "error" })</span>
+                </div>
+            }
+          }
+            <div id="btn-submit">
+                <input type="submit" class="form_submit" value="Thêm" />
+            </div>
+
+            <div class="clear"></div>
+        </div>
+    </div>
+}

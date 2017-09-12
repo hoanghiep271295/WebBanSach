@@ -1,0 +1,141 @@
+﻿@model List<ShopOnline.Entities.CartItem>
+@{
+    ViewBag.Title = "IndexShoppingCart";
+    Layout = "~/Views/Shared/_LayoutClient.cshtml";
+}
+
+<title>Shop Cart</title>
+<link href="~/Content/css/shopping-cart.css" rel="stylesheet" />
+<link href="~/Content/css/style.css" rel="stylesheet" />
+
+<!-- Main -->
+
+<div class="p_space"></div>
+<div id="main">
+    <div class="cl">&nbsp;</div>
+    @if (ViewBag.Error_msg!=null)
+    {
+        <div class="cartempty"><i class="fa fa-lightbulb-o fa-2x" aria-hidden="true"></i>
+            @ViewBag.Error_msg <i class="fa fa-frown-o" aria-hidden="true"></i>
+
+        </div>
+    }
+    <!-- Shopping-cart -->
+    <div class="shopping-cart">
+        <div class="cart-title">
+            <div class="hinh-anh">
+                <h1>
+
+                    <a href="#"><img src="/images/Shopping-Cart-Icon.png" alt="" /></a>Giỏ hàng
+                </h1>
+            </div>
+            @if (Model.Count > 0)
+            {
+                int tongtien = 0;
+                foreach (var item_temp in Model)
+                {
+                    int dongia_temp = (int)item_temp.Sachs.DonGia;
+                    int khuyenmai_temp = (int)item_temp.Sachs.TinhTrangKM;
+                    int thanhtien = (dongia_temp - dongia_temp * khuyenmai_temp / 100) * item_temp.Soluong;
+                    tongtien += thanhtien;
+                }
+
+                <div class="thanh-tien">
+                    Thành tiền :
+                    <span>@tongtien VNĐ</span>
+                </div>
+            }
+            else
+            {
+                <div class="thanh-tien">
+                    Thành tiền :
+                    <span>0 VNĐ</span>
+                </div>
+            }
+        </div>
+        <div class="cart-detail">
+            <div class="cart-table">
+                
+                @if (Model.Count > 0)
+                {
+                    <table class="data-table">
+
+                        <tr>
+                            <td class="header-table">Hình ảnh</td>
+                            <td class="header-table">Tên sách</td>
+                            <td class="header-table">Khuyến mại</td>
+                            <td class="header-table">Giá</td>
+                            <td class="header-table">Số lượng</td>
+                            <td class="header-table">Thành tiền</td>
+                            <td class="header-table">Gỡ bỏ</td>
+                        </tr>
+                        
+                        @{int i = 0;}
+                        @foreach (var item in Model)
+                        {
+                            
+                            if (i % 2 == 0)
+                            {
+
+                                int dongia = (int)item.Sachs.DonGia;
+                                int khuyenmai = (int)item.Sachs.TinhTrangKM;
+                                int thanhtien = (dongia - dongia * khuyenmai / 100) * item.Soluong;
+                                <tr >
+                                    <td class="content-table" align="center"><img src="/images/Imagesbook/@item.Sachs.Anh" width="70" height="100" /></td>
+                                    <td class="content-table">@item.Sachs.TenSach</td>
+                                    <td class="content-table" align="center" style="color:blue;">@item.Sachs.TinhTrangKM %</td>
+                                    <td class="content-table" align="center" style="color:red;">@dongia VNĐ</td>
+                                    <td style="text-align: center;"><input type="number" min="1" style="padding:5px;width:50px;" name="soluong" class="soluongsach" data-id="@item.Sachs.MaSach" value="@item.Soluong" /></td>
+                                    <td class="content-table" align="center" style="color:red;">@thanhtien VNĐ</td>
+                                    <td class="content-table"><a href="" class="delete-item-cart" data-id="@item.Sachs.MaSach"><img src="/images/Red X.png" alt="" /></a></td>
+                                </tr>
+                            }
+                            else
+                            {
+                                int dongia = (int)item.Sachs.DonGia;
+                                int khuyenmai = (int)item.Sachs.TinhTrangKM;
+                                int thanhtien = (dongia - dongia * khuyenmai / 100) * item.Soluong;
+                                <tr class="doimau">
+                                    <td class="content-table" align="center"><img src="/images/Imagesbook/@item.Sachs.Anh" width="70" height="100" /></td>
+                                    <td class="content-table">@item.Sachs.TenSach</td>
+                                    <td class="content-table" align="center" style="color:blue;">@item.Sachs.TinhTrangKM %</td>
+                                    <td class="content-table" align="center" style="color:red;">@dongia VNĐ</td>
+                                    <td style="text-align: center;"><input type="number" min="1" style="padding:5px;width:50px;" name="soluong" class="soluongsach" data-id="@item.Sachs.MaSach" value="@item.Soluong" /></td>
+                                    <td class="content-table" align="center" style="color:red;">@thanhtien VNĐ</td>
+                                    <td class="content-table"><a href="" class="delete-item-cart" data-id="@item.Sachs.MaSach"><img src="/images/Red X.png" alt="" /></a></td>
+                                </tr>
+                            }
+                            i++;
+                        }
+
+                        <tr>
+                            <td class="content-table" ><a href="~/TrangChu/Index"><input type="button" value="CHỌN THÊM" /></a></td>
+                            <td class="content-table"></td>
+                            <td class="content-table"></td>
+                            <td class="content-table" ></td>
+                            <td class="content-table"><a href="" id="deleteall"><input type="button" value="XÓA HẾT" /></a></td>
+                            <td class="content-table"><a href="" id="updateitem"><input type="button" value="CẬP NHẬT"  /></a></td>
+                            <td class="content-table"><a href="@Url.Action("CheckDonHang","ShoppingCart")" id="thanhtoan"><input type="button" value="THANH TOÁN" /></a></td>
+                        </tr>
+
+                    </table>
+                }
+                else
+                {
+                    <div class="cartempty"><i class="fa fa-lightbulb-o fa-2x" aria-hidden="true"></i>
+                         Hiện tại giỏ hàng của bạn trống <i class="fa fa-frown-o" aria-hidden="true"></i>
+
+                    </div>
+                    
+                     <a href="~/TrangChu/Index"><input type="button" class="btnAdd" value="CHỌN THÊM" /></a>
+                       
+                }
+
+            </div>
+
+           
+
+        </div>
+    </div>
+</div>
+<!-- End Main -->

@@ -1,0 +1,113 @@
+﻿@using ShopOnline.Entities;
+@model List<Sach>
+@{
+    ViewBag.Title = "View1";
+    Layout = "~/Views/Shared/_LayoutShop.cshtml";
+}
+
+<div id="content">
+
+    <!-- Content Slider -->
+    @RenderPage("~/Views/Common/_Slider.cshtml")
+    <!-- End Content Slider --
+    <!-- Products -->
+    <!--></-->
+    <div class="products-titlebox">
+        <div class="products-titlebox-left">
+            <h2>
+                <i class="fa fa-book" aria-hidden="true"></i>
+                @ViewBag.TenDanhMuc
+            </h2>
+        </div>
+        <div class="products-titlebox-right"></div>
+    </div>
+    <div class="products">
+        <ul>
+            <div class="p_space"></div>
+
+            @{
+                foreach (var item in Model)
+                {
+                    if (item.TinhTrangKM == 0)
+                    {
+                        <li>
+                            <div class="product-image">
+                                <a href="@Url.Action("IndexChiTietSach", "TrangChu", new { id = @item.MaSach })"><img src="/images/Imagesbook/@item.Anh" alt="" /></a>
+
+                            </div>
+                            <div class="product-info">
+                                <div class="product-name">
+                                    <h3>
+                                        <i class="fa fa-bookmark" aria-hidden="true"></i>
+                                        <a href="@Url.Action("IndexChiTietSach", "TrangChu", new { id = @item.MaSach }) ">@item.TenSach</a>
+                                    </h3>
+                                </div>
+                                <div class="product-price">
+                                    @{
+                        int price = (int)item.DonGia;
+                        <h3>
+                            <i class="fa fa-usd" aria-hidden="true"></i>
+                            @price VNĐ
+                        </h3>
+                                    }
+                                </div>
+                                <a href="@Url.Action("AddItemSach", "ShoppingCart", new { @idsach = item.MaSach, @soluong = 1,@url=Request.Url.ToString() }) ">
+                                    <div class="product-action">
+                                        <i class="fa fa-shopping-cart fa-3x" aria-hidden="true"></i>
+                                        <div class="text-cart">MUA NGAY</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+
+                            <div class="product-image">
+                                <a href="@Url.Action("IndexChiTietSach", "TrangChu", new { id = @item.MaSach })" style="position:relative;">
+                                    <div class="km">-@item.TinhTrangKM%</div>
+                                    <div><img src="/images/Imagesbook/@item.Anh" alt="" /></div>
+                                </a>
+
+                            </div>
+                            <div class="product-info">
+                                <div class="product-name">
+                                    <h3>
+                                        <i class="fa fa-bookmark" aria-hidden="true"></i>
+                                        <a href="@Url.Action("IndexChiTietSach", "TrangChu", new { id = @item.MaSach }) ">@item.TenSach</a>
+                                    </h3>
+                                </div>
+                                <div class="product-price-2">
+                                    @{
+                        int price = (int)item.DonGia;
+                        int price2 = (int)(item.DonGia - item.DonGia * item.TinhTrangKM / 100);
+                        <h3>
+                            <i class="fa fa-usd" aria-hidden="true"></i>
+                            <span class="reduce">@price VNĐ</span><span class="price">@price2 VNĐ</span>
+                        </h3>
+                                    }
+                                </div>
+                                <a href="@Url.Action("AddItemSach", "ShoppingCart", new { @idsach = item.MaSach, @soluong = 1,@url=Request.Url.ToString() }) ">
+                                    <div class="product-action">
+                                        <i class="fa fa-shopping-cart fa-3x" aria-hidden="true"></i>
+                                        <div class="text-cart">MUA NGAY</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+                    }
+                }
+
+            }
+        </ul>
+        <div class="cl">&nbsp;</div>
+    </div>
+
+
+
+    <!-- End Products -->
+    <div class="p_space"></div>
+</div>
+
+<!-- End Content -->

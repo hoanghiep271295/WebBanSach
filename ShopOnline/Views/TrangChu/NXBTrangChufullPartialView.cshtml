@@ -1,0 +1,14 @@
+﻿
+@using ShopOnline.Entities;
+@model List<NXB>
+@{
+    foreach (var item in Model)
+    {
+        <li>
+            <img src="/images/cat.gif" alt="" />&nbsp;&nbsp;
+            <a href="@Url.Action("IndexSach_NXB", "TrangChu", new { id = @item.MaNXB }) ">@item.TenNXB</a>
+        </li>
+    }
+    <li class="last"><a  class="lasthide" id="hidenxb"><< Thu gọn...</a></li>
+}
+

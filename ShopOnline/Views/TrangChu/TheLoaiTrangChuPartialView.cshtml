@@ -1,0 +1,9 @@
+﻿@using ShopOnline.Entities;
+@model List<TheLoaiSach>
+@foreach (var item in Model)
+    {
+        <li><img src="/images/cat.gif" alt="" />&nbsp;&nbsp;
+            <a href="@Url.Action("IndexSach_TheLoai", "TrangChu", new { id = @item.MaTheLoai }) ">@item.TenLoaiSach</a></li>
+    }
+<li><a class="showsach" id="showtl">>> Xem thêm...</a></li>
+

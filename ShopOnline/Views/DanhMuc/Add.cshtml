@@ -1,0 +1,53 @@
+﻿@model ShopOnline.Entities.DanhMuc
+
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_LayoutPanelo.cshtml";
+}
+
+@section DS
+{
+    <ul>
+        <li><a href="~/KhachHang/List">Khách hàng</a></li>
+        <li><a href="~/NhanVien/List">Nhân viên</a></li>
+        <li><a href="~/Sach/List">Sách</a></li>
+        <li><a href="~/TacGia/List">Tác giả</a></li>
+        <li><a href="~/TheLoai/List">Thể loại</a></li>
+        <li class="chon"><a href="~/DanhMuc/List">Danh mục</a></li>
+        <li><a href="~/ChiTietHoaDon/List">Chi tiết hóa đơn</a></li>
+        <li><a href="~/HoaDon/List">Hóa đơn</a></li>
+        <li><a href="~/QuangCao/List">Quảng cáo</a></li>
+        <li><a href="~/SangTac/List">Sáng tác</a></li>
+        <li><a href="~/NXB/List">Nhà xuất bản</a></li>
+    </ul>
+}
+@*@if (Session["TenDangNhap"] == null && Session["MatKhau"] == null)
+{
+
+    Response.Redirect("~/Admin/Login");
+}*@
+
+
+@using (Html.BeginForm("AddAction", "DanhMuc"))
+{
+    <ul id="tabsmenu" class="tabsmenu">
+        <li class="active"><a href="#tab1">Thêm </a></li>
+    </ul>
+    <div id="tab1" class="tabcontent">
+
+        <div class="form">
+            
+            <div class="form_row">
+                <label>Tên danh mục sách:</label>
+                <input type="text" class="form_input" name="TenDanhMuc" id="TenDanhMuc" value="" />
+                <span>@Html.ValidationMessageFor(model => model.TenDanhMuc, "", new { @class = "error" })</span>
+            </div>
+
+            <div id="btn-submit">
+                <input type="submit" class="form_submit" value="Thêm" />
+            </div>
+
+            <div class="clear"></div>
+        </div>
+    </div>
+}

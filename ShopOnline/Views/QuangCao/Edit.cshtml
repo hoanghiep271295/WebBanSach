@@ -1,0 +1,122 @@
+﻿@model ShopOnline.Entities.QuangCao
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutPanelo.cshtml";
+}
+
+<link href="~/Content/css/jquery-ui.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="~/Content/css/style-admin.css" />
+<link href='http://fonts.googleapis.com/css?family=Belgrano' rel='stylesheet' type='text/css'>
+<link href="~/Content/css/demos.css" rel="stylesheet" />
+<link href="~/Content/css/jquery.ui.all.css" rel="stylesheet" />
+<!-- jQuery file -->
+<script src="~/Scripts/js/jquery.min.js"></script>
+<script src="~/Scripts/js/jquery.tabify.js" type="text/javascript" charset="utf-8"></script>
+
+<script src="~/Scripts/js/jquery-1.8.3.js"></script>
+<script src="~/Scripts/js/jquery.ui.core.js"></script>
+<script src="~/Scripts/js/jquery.ui.datepicker.js"></script>
+<script src="~/Scripts/js/jquery.ui.widget.js"></script>
+<script type="text/javascript">
+
+    $(function () {
+        $("#datepicker").datepicker({
+            changeMonth: true,
+            changeYear: true
+        });
+    });
+
+
+    var $ = jQuery.noConflict();
+    $(function () {
+        $('#tabsmenu').tabify();
+        $(".toggle_container").hide();
+        $(".trigger").click(function () {
+            $(this).toggleClass("active").next().slideToggle("slow");
+            return false;
+        });
+    });
+
+</script>
+
+
+
+
+@section DS
+{
+    <ul>
+        <li><a href="~/KhachHang/List">Khách hàng</a></li>
+        <li><a href="~/NhanVien/List">Nhân viên</a></li>
+        <li><a href="~/Sach/List">Sách</a></li>
+        <li><a href="~/TacGia/List">Tác giả</a></li>
+        <li><a href="~/TheLoai/List">Thể loại</a></li>
+        <li><a href="~/DanhMuc/List">Danh mục</a></li>
+        <li><a href="~/ChiTietHoaDon/List">Chi tiết hóa đơn</a></li>
+        <li><a href="~/HoaDon/List">Hóa đơn</a></li>
+        <li class="chon"><a href="~/QuangCao/List">Quảng cáo</a></li>
+        <li><a href="~/SangTac/List">Sáng tác</a></li>
+        <li><a href="~/NXB/List">Nhà xuất bản</a></li>
+    </ul>
+}
+
+@using (Html.BeginForm("EditAction", "QuangCao"))
+{
+    <ul id="tabsmenu" class="tabsmenu">
+        <li class="active"><a href="#tab1">Sửa </a></li>
+    </ul>
+    <div id="tab1" class="tabcontent">
+
+        <div class="form">
+            @Html.HiddenFor(model => model.MaQC)
+
+            <div class="form_row">
+                <label>Tên quảng cáo:</label>
+                @Html.EditorFor(model => model.TenQC, new { @class = "form_input" })
+                <span>@Html.ValidationMessageFor(model => model.TenQC, "", new { @class = "error" })</span>
+            </div>
+
+           
+            <div class="form_row">
+                <label>Tên URL:</label>
+                @Html.EditorFor(model => model.TenURL, new { @class = "form_input" })
+                <span>@Html.ValidationMessageFor(model => model.TenURL, "", new { @class = "error" })</span>
+            </div>
+
+
+            <div class="form_row">
+                <label>Nội dung:</label>
+                @Html.EditorFor(model => model.NoiDung, new { @class = "form_input" })
+                <span>@Html.ValidationMessageFor(model => model.NoiDung, "", new { @class = "error" })</span>
+            </div>
+
+            <div class="form_row">
+                <label>Ngày đăng:</label>
+
+                <div class="input-bg">
+                    @{
+                        if (Model == null)
+                        {
+                            <input type="text" id="datepicker" class="form_input" name="NgayDang" value="">
+                        }
+                        else
+                        {
+                            <input type="text" id="datepicker" class="form_input" name="NgayDang" value="@Model.NgayDang">
+                        }
+                    }
+                    <span>@Html.ValidationMessageFor(model => model.NgayDang, "", new { @class = "error" })</span>
+                </div>
+            </div>
+
+
+
+
+
+            <div id="btn-submit">
+                <input type="submit" class="form_submit" value="Lưu" />
+            </div>
+
+            <div class="clear"></div>
+        </div>
+    </div>
+}

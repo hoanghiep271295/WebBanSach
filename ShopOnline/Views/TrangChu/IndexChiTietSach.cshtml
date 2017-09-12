@@ -1,0 +1,99 @@
+﻿@using ShopOnline.ViewModel;
+@model SachViewModel
+
+@{
+    ViewBag.Title = "IndexChiTietSach";
+    Layout = "~/Views/Shared/_LayoutShop.cshtml";
+}
+<link href="~/Content/css/style.css" rel="stylesheet" />
+<link href="~/Content/css/style-detail.css" rel="stylesheet" />
+<script type="text/javascript">
+        $(document).ready(function () {
+            var sl = $('#soluong').val();
+            $('.addtocart').attr("href", "/ShoppingCart/AddItemSach?idsach=" +@Model.MaSach +"&soluong=" + sl + "&url=/ShoppingCart/IndexShoppingCart");
+        });
+
+        $('#soluong').change(function (e) {
+            var sl = $('#soluong').val();
+            if (sl == "")
+            {
+                sl = 1;
+            }
+            $('.addtocart').attr("href", "/ShoppingCart/AddItemSach?idsach=" +@Model.MaSach +"&soluong=" + sl + "&url=/ShoppingCart/IndexShoppingCart");
+        });
+</script>
+<!-- Content -->
+<div id="content">
+    @*<div class="link"><a href="~/TrangChu/Index">Trang chủ</a> / <a href="#">Truyện</a></div>*@
+    <div class="title-book">
+        <i class="fa fa-tags" aria-hidden="true"></i>  
+        @Model.TenSach
+    </div>
+    <div class="detail-image">
+        <div class="product-image1">
+            <img src="/images/Imagesbook/@Model.Anh" alt="" />
+        </div>
+        <ul>
+            <li><a href="#"><img src="" alt="" /></a></li>
+
+        </ul>
+    </div>
+    <div class="detail-info">
+        <div class="product_name"><h3><i class="fa fa-hand-o-right" aria-hidden="true"></i> Tác giả : <a href="#">@Model.TenTG</a></h3></div>
+        <div class="product_name"><h3><i class="fa fa-hand-o-right" aria-hidden="true"></i> Nhà xuất bản : <a href="#">@Model.TenNXB</a></h3></div>
+        <div class="product_name"><h3><i class="fa fa-hand-o-right" aria-hidden="true"></i> Thời gian sáng tác : <a href="#">@Model.TGSangTac</a></h3></div>
+        @{
+            if (Model.SoLuongCon > 0)
+            {
+                <div class="product_name"><h3><i class="fa fa-hand-o-right" aria-hidden="true"></i> Tình trạng : Còn hàng</h3></div>
+            }
+            else
+            {
+                <div class="product_name"><h3><i class="fa fa-hand-o-right" aria-hidden="true"></i> Tình trạng : Hết hàng</h3></div>
+            }
+        }
+
+        <div class="product-price-2">
+            @{
+                if (Model.TinhTrangKM > 0)
+                {
+                    int price = (int)Model.DonGia;
+                    int price2 = (int)(Model.DonGia - Model.DonGia * Model.TinhTrangKM / 100);
+                    <h3>
+                        <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+                        GIÁ : <span class="reduce">@price VNĐ</span><span class="price">@price2 VNĐ</span>
+                    </h3>
+                }
+                else
+                {
+                    int price = (int)Model.DonGia;
+                    <h3>
+                        <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+                        GIÁ : <span class="price">@price VNĐ</span>
+                    </h3>
+                }
+            }
+
+        </div>
+        <div class="product_name">
+            <h3>
+                <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+                Số lượng : <input type="number" min="1" name="soluong" id="soluong" value="1"/>
+
+            </h3>
+        </div>
+        <div class="p_space"></div>
+        <a href="~/ShoppingCart/AddItemSach?idsach=@Model.MaSach&soluong=1&url=@Request.Url.ToString()" class="addtocart">
+            <div class="product-action">
+                <i class="fa fa-shopping-cart fa-3x" aria-hidden="true"></i>
+                <div class="text-cart">MUA NGAY</div>
+            </div>
+        </a>
+    </div>
+    <div class="noidung">
+        <i class="fa fa-tag" aria-hidden="true"></i>
+        @Model.Mota
+    </div>
+
+    
+</div>

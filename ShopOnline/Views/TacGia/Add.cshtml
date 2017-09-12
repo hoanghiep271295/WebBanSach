@@ -1,0 +1,80 @@
+﻿@model ShopOnline.Entities.TacGia
+
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_LayoutPanelo.cshtml";
+}
+
+@section DS
+{
+    <ul>
+        <li><a href="~/KhachHang/List">Khách hàng</a></li>
+        <li><a href="~/NhanVien/List">Nhân viên</a></li>
+        <li><a href="~/Sach/List">Sách</a></li>
+        <li class="chon"><a href="~/TacGia/List">Tác giả</a></li>
+        <li><a href="~/TheLoai/List">Thể loại</a></li>
+        <li><a href="~/DanhMuc/List">Danh mục</a></li>
+        <li><a href="~/ChiTietHoaDon/List">Chi tiết hóa đơn</a></li>
+        <li><a href="~/HoaDon/List">Hóa đơn</a></li>
+        <li><a href="~/QuangCao/List">Quảng cáo</a></li>
+        <li><a href="~/SangTac/List">Sáng tác</a></li>
+        <li><a href="~/NXB/List">Nhà xuất bản</a></li>
+    </ul>
+}
+@*@if (Session["TenDangNhap"] == null && Session["MatKhau"] == null)
+{
+
+    Response.Redirect("~/Admin/Login");
+}*@
+
+
+@using (Html.BeginForm("AddAction", "TacGia"))
+{
+    <ul id="tabsmenu" class="tabsmenu">
+        <li class="active"><a href="#tab1">Thêm </a></li>
+    </ul>
+    <div id="tab1" class="tabcontent">
+
+        <div class="form">
+             @{
+                if(@Session["Ok"] ==null)
+                {
+                        <div class="form_row">
+                            <label>Tên tác giả:</label>
+                            <input type="text" class="form_input" name="TenTG" id="TenTG" value="" />
+                            <span>@ViewBag.msg_err
+                          @Html.ValidationMessageFor(model => model.TenTG, "", new { @class = "error" })</span>
+                        </div>
+          
+
+                        <div class="form_row">
+                            <label>Thông tin tác giả:</label>
+                            <textarea class="form_textarea" name="ThongTinTG" id="ThongTinTG"></textarea>
+                            <span>@Html.ValidationMessageFor(model => model.ThongTinTG, "", new { @class = "error" })</span>
+                        </div>
+                }
+                else
+                {
+                        <div class="form_row">
+                            <label>Tên tác giả:</label>
+                            @Html.EditorFor(model => model.TenTG, new { @class = "form_input" })
+                            <span>@Html.ValidationMessageFor(model => model.TenTG, "", new { @class = "error" })</span>
+                        </div>
+
+               
+                        <div class="form_row">
+                            <label>Thông tin tác giả:</label>
+                            @Html.EditorFor(model => model.ThongTinTG, new { @class = "form_textarea" })
+                            <span>@Html.ValidationMessageFor(model => model.ThongTinTG, "", new { @class = "error" })</span>
+                        </div>
+                }
+              }
+
+            <div id="btn-submit">
+                <input type="submit" class="form_submit" value="Thêm" />
+            </div>
+            
+            <div class="clear"></div>
+        </div>
+    </div>
+}

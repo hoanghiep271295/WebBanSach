@@ -1,0 +1,11 @@
+﻿@using ShopOnline.Entities;
+@model List<TacGia>
+@{
+    foreach (var item in Model)
+    {
+        <li><img src="/images/cat.gif" alt="" />&nbsp;&nbsp;
+            <a href="@Url.Action("IndexSach_TacGia", "TrangChu", new { id = @item.MaTG }) ">@item.TenTG</a></li>
+    }
+    <li class="last"><a  class="showsach" id="showtg">>> Xem thêm...</a></li>
+}
+

@@ -1,0 +1,70 @@
+
+
+
+.p_space{width: 850px; height: 15px; padding: 5px 10px 0 20px;}
+.cart-title  h1{color:red;}
+.shopping-cart{width:1100px;}
+.cart-detail{width:1100px;}
+.cart-table{width:1100px;}
+.cart-table table{width:1100px;}
+.data-table{width:1100px;border:1px solid white;}
+.header-table{width:150px;height:50px;text-align:center;color:black;font-size:16px;border:1px solid #dedede;background:#7ABD99;}
+.content-table{width:100px;height:auto;text-align:center;color:black;padding:7px;font-size:15px;}
+.content-table input{width:100px;height:40px;background:#f96d2c;font-size:14px;color:white;}
+.content-table input:hover
+{
+    background:green;
+    cursor:pointer;
+}
+.price {color:red;}
+#soluong{background:white;height:35px;width:40px;text-align:center;color:black;border:1px solid #dedede;}
+#add{float:left;margin-left:10px;}
+#content-table{border-top:solid 1px #dedede;border-bottom:solid 1px #dedede;}
+.btnAdd
+{
+    width: 100px;
+    height: 40px;
+    background: #f96d2c ;
+    margin-top: 10px;
+}
+.end{width:1100px;height:230px}
+.end-right{float:right;width:500px;height:200px;margin-top:10px;}
+.end-1{float:right;width:500px;height:100px;background:#aae9aa;}
+.end-2{float:right;width:500px;height:100px;background:white;}
+.thanh-tien{width: 500px;
+height: 50px;
+float: right;
+text-align: right;
+font-size: 20px;
+margin-top: 70px;
+margin-right: 20px;}
+.thanh-tien span{width: 150px;
+height: 30px;
+margin-right: 40px;
+margin-top: 40px;
+text-align: center;
+color: #F00;}
+.thanh-toan input{float:right;width:150px;height:50px;margin-right:0px;margin-top:17px;background:#f96d2c;font-size:14px;color:white;}
+tr .doimau{
+    background: #dedede;
+}
+.cartempty{
+    border: 1px solid #16954D;
+    padding: 8px;
+    border-radius: 3px;
+    background: #ECBBBB;
+    font-size: 16px;
+    color: #081068;
+}
+.cart-title{
+    border-bottom: 1px solid gray;
+    margin-bottom: 15px;
+}
+.hinh-anh{
+    width: 400px;
+display: inline-block;
+}
+
+
+
+

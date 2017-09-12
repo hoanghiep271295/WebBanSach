@@ -1,0 +1,682 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1DD1CC3A-EDAD-483B-B8FB-2617228AE8C8}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ShopOnline</RootNamespace>
+    <AssemblyName>ShopOnline</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.0.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.1\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.0.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <Private>True</Private>
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.1.0.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.1.0.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.1.0.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.2.0.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.0.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.0.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.2.0.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.0.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.0.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.2.0.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.2.0.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.2.0.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ChiTietHoaDonController.cs" />
+    <Compile Include="Controllers\DanhMucController.cs" />
+    <Compile Include="Controllers\HoaDonController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KhachHangController.cs" />
+    <Compile Include="Controllers\KhachHangLoginController.cs" />
+    <Compile Include="Controllers\NhanVienController.cs" />
+    <Compile Include="Controllers\NXBController.cs" />
+    <Compile Include="Controllers\QuangCaoController.cs" />
+    <Compile Include="Controllers\SachController.cs" />
+    <Compile Include="Controllers\SangTacController.cs" />
+    <Compile Include="Controllers\ShoppingCartController.cs" />
+    <Compile Include="Controllers\TacGiaController.cs" />
+    <Compile Include="Controllers\TrangChuController.cs" />
+    <Compile Include="Controllers\TheLoaiController.cs" />
+    <Compile Include="DAO\AdminDao.cs" />
+    <Compile Include="DAO\ChiTietHoaDonDao.cs" />
+    <Compile Include="DAO\DanhMucDao.cs" />
+    <Compile Include="DAO\HoaDonDao.cs" />
+    <Compile Include="DAO\KhachHangDao.cs" />
+    <Compile Include="DAO\NhanVienDao.cs" />
+    <Compile Include="DAO\NXBDao.cs" />
+    <Compile Include="DAO\QuangCaoDao.cs" />
+    <Compile Include="DAO\SachDao.cs" />
+    <Compile Include="DAO\SangTacDao.cs" />
+    <Compile Include="DAO\TacGiaDao.cs" />
+    <Compile Include="DAO\TheLoaiSachDao.cs" />
+    <Compile Include="Entities\CartItem.cs" />
+    <Compile Include="Entities\ChiTietHoaĐon.cs" />
+    <Compile Include="Entities\DanhMuc.cs" />
+    <Compile Include="Entities\HoaDon.cs" />
+    <Compile Include="Entities\KhachHang.cs" />
+    <Compile Include="Entities\MyClassDbContent.cs" />
+    <Compile Include="Entities\NhanVien.cs" />
+    <Compile Include="Entities\NXB.cs" />
+    <Compile Include="Entities\QuangCao.cs" />
+    <Compile Include="Entities\Sach.cs" />
+    <Compile Include="Entities\SangTac.cs" />
+    <Compile Include="Entities\sysdiagram.cs" />
+    <Compile Include="Entities\TacGia.cs" />
+    <Compile Include="Entities\TheLoaiSach.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CTHDValidationAttribute.cs" />
+    <Compile Include="Models\GlobalModel.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\DanhMucValidationAttribute.cs" />
+    <Compile Include="Models\TheLoaiValidationAttribute.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="ViewModel\SachViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\cssLogin\normalize.css" />
+    <Content Include="Content\cssLogin\styleLoginKH.css" />
+    <Content Include="Content\css\demos.css" />
+    <Content Include="Content\css\ie6.css" />
+    <Content Include="Content\css\jquery-ui.css" />
+    <Content Include="Content\css\jquery.ui.all.css" />
+    <Content Include="Content\css\jquery.ui.base.css" />
+    <Content Include="Content\css\jquery.ui.button.css" />
+    <Content Include="Content\css\jquery.ui.core.css" />
+    <Content Include="Content\css\jquery.ui.datepicker.css" />
+    <Content Include="Content\css\jquery.ui.theme.css" />
+    <Content Include="Content\css\shopping-cart.css" />
+    <Content Include="Content\css\style-admin.css" />
+    <Content Include="Content\css\style-detail.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="font-awesome-4.6.3\css\font-awesome.css" />
+    <Content Include="font-awesome-4.6.3\css\font-awesome.min.css" />
+    <Content Include="font-awesome-4.6.3\fonts\fontawesome-webfont.svg" />
+    <Content Include="font-awesome-4.6.3\HELP-US-OUT.txt" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="images\acc.jpg" />
+    <Content Include="images\amazon.jpg" />
+    <Content Include="images\banner-2.png" />
+    <Content Include="images\banner03022016.jpg" />
+    <Content Include="images\banner_sachhay_NXBtrithuc.jpg" />
+    <Content Include="images\body.gif" />
+    <Content Include="images\book-icon-black.png" />
+    <Content Include="images\book-store.png" />
+    <Content Include="images\bookstore.png" />
+    <Content Include="images\bul.gif" />
+    <Content Include="images\cart-link.gif" />
+    <Content Include="images\cart.gif" />
+    <Content Include="images\cart1.png" />
+    <Content Include="images\cart11.png" />
+    <Content Include="images\cat.gif" />
+    <Content Include="images\chao-thang-4-header_1.jpg" />
+    <Content Include="images\chuyenkhoan.JPG" />
+    <Content Include="images\contact-new.png" />
+    <Content Include="images\demo-spindown-closed.gif" />
+    <Content Include="images\demo-spindown-open.gif" />
+    <Content Include="images\detail-icon.png" />
+    <Content Include="images\edit.png" />
+    <Content Include="images\giam-gia-sach-ngoai-ngu-giam-den-35-adayroi_805.jpg" />
+    <Content Include="images\h2-arr.gif" />
+    <Content Include="images\harry potter - Copy.jpg" />
+    <Content Include="images\harry potter.jpg" />
+    <Content Include="images\header.gif" />
+    <Content Include="images\hoi-sach-online.jpg" />
+    <Content Include="images\home.png" />
+    <Content Include="images\hop thoai.png" />
+    <Content Include="images\ic3-spark-2001-1170x260.jpg" />
+    <Content Include="images\ico1.gif" />
+    <Content Include="images\ico2.gif" />
+    <Content Include="images\ico3.gif" />
+    <Content Include="images\ico4.gif" />
+    <Content Include="images\icon-taikhoan.png" />
+    <Content Include="images\ic_search.png" />
+    <Content Include="images\Imagesbook\203534_p67314mconchonho.jpg" />
+    <Content Include="images\Imagesbook\207525_p67925mbiatruoc.jpg" />
+    <Content Include="images\Imagesbook\207536_p67878mbt.jpg" />
+    <Content Include="images\Imagesbook\bay-buoc-toi-mua-he_2.jpg" />
+    <Content Include="images\Imagesbook\chi_n_tranh_v_h_a_b_nh.jpg" />
+    <Content Include="images\Imagesbook\cp.jpg" />
+    <Content Include="images\Imagesbook\cuoc-phieu-luu-cua-in-hong.jpg" />
+    <Content Include="images\Imagesbook\Ehon.jpg" />
+    <Content Include="images\Imagesbook\gaomatanh_1.jpg" />
+    <Content Include="images\Imagesbook\gaoyeuanh.jpg" />
+    <Content Include="images\Imagesbook\img177_6.jpg" />
+    <Content Include="images\Imagesbook\img221_11.jpg" />
+    <Content Include="images\Imagesbook\img683_9.jpg" />
+    <Content Include="images\Imagesbook\img872_1_3.jpg" />
+    <Content Include="images\Imagesbook\img959_3.jpg" />
+    <Content Include="images\Imagesbook\kien-va-chim-bo-cau_1.jpg" />
+    <Content Include="images\Imagesbook\lam-chu-tu-duy-thay-doi-van-menh_1.jpg" />
+    <Content Include="images\Imagesbook\nam_cao_tuyen_tap.jpg" />
+    <Content Include="images\Imagesbook\the_nhan_biet_the_gioi_xung_quanh_thuc_vat.jpg" />
+    <Content Include="images\Imagesbook\toi-tai-gioi.jpg" />
+    <Content Include="images\Imagesbook\toi-thay-hoa-vang-tren-co-xanh-combo.jpg" />
+    <Content Include="images\info.png" />
+    <Content Include="images\logo.gif" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\logo1.jpg" />
+    <Content Include="images\logo2.png" />
+    <Content Include="images\logo3.png" />
+    <Content Include="images\logout.png" />
+    <Content Include="images\next.gif" />
+    <Content Include="images\ngontinh-1901-360x210.jpg" />
+    <Content Include="images\nuconggiachanh-2001-360x210.jpg" />
+    <Content Include="images\pages-black-icon.png" />
+    <Content Include="images\prev.gif" />
+    <Content Include="images\Red X.png" />
+    <Content Include="images\s.png" />
+    <Content Include="images\s1.png" />
+    <Content Include="images\sach-doat-giai-2014-large.jpg" />
+    <Content Include="images\sach-hay-mua-thu.jpg" />
+    <Content Include="images\sach_ky_nang_song_email.jpg" />
+    <Content Include="images\search.gif" />
+    <Content Include="images\settings.png" />
+    <Content Include="images\Shopping-Cart-Icon.png" />
+    <Content Include="images\thang5giainhiet-1263x80_2.jpg" />
+    <Content Include="images\thanhtoan.gif" />
+    <Content Include="images\thanhtoan2.jpg" />
+    <Content Include="images\timkiem.bmp" />
+    <Content Include="images\timkiem.png" />
+    <Content Include="images\trash.gif" />
+    <Content Include="images\user_add.png" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="font-awesome-4.6.3\fonts\fontawesome-webfont.eot" />
+    <Content Include="font-awesome-4.6.3\fonts\fontawesome-webfont.ttf" />
+    <Content Include="font-awesome-4.6.3\fonts\fontawesome-webfont.woff" />
+    <Content Include="font-awesome-4.6.3\fonts\fontawesome-webfont.woff2" />
+    <Content Include="font-awesome-4.6.3\fonts\FontAwesome.otf" />
+    <Content Include="font-awesome-4.6.3\less\animated.less" />
+    <Content Include="font-awesome-4.6.3\less\bordered-pulled.less" />
+    <Content Include="font-awesome-4.6.3\less\core.less" />
+    <Content Include="font-awesome-4.6.3\less\fixed-width.less" />
+    <Content Include="font-awesome-4.6.3\less\font-awesome.less" />
+    <Content Include="font-awesome-4.6.3\less\icons.less" />
+    <Content Include="font-awesome-4.6.3\less\larger.less" />
+    <Content Include="font-awesome-4.6.3\less\list.less" />
+    <Content Include="font-awesome-4.6.3\less\mixins.less" />
+    <Content Include="font-awesome-4.6.3\less\path.less" />
+    <Content Include="font-awesome-4.6.3\less\rotated-flipped.less" />
+    <Content Include="font-awesome-4.6.3\less\screen-reader.less" />
+    <Content Include="font-awesome-4.6.3\less\stacked.less" />
+    <Content Include="font-awesome-4.6.3\less\variables.less" />
+    <Content Include="font-awesome-4.6.3\scss\font-awesome.scss" />
+    <Content Include="font-awesome-4.6.3\scss\_animated.scss" />
+    <Content Include="font-awesome-4.6.3\scss\_bordered-pulled.scss" />
+    <Content Include="font-awesome-4.6.3\scss\_core.scss" />
+    <Content Include="font-awesome-4.6.3\scss\_fixed-width.scss" />
+    <Content Include="font-awesome-4.6.3\scss\_icons.scss" />
+    <Content Include="font-awesome-4.6.3\scss\_larger.scss" />
+    <Content Include="font-awesome-4.6.3\scss\_list.scss" />
+    <Content Include="font-awesome-4.6.3\scss\_mixins.scss" />
+    <Content Include="font-awesome-4.6.3\scss\_path.scss" />
+    <Content Include="font-awesome-4.6.3\scss\_rotated-flipped.scss" />
+    <Content Include="font-awesome-4.6.3\scss\_screen-reader.scss" />
+    <Content Include="font-awesome-4.6.3\scss\_stacked.scss" />
+    <Content Include="font-awesome-4.6.3\scss\_variables.scss" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jsLogin\index.js" />
+    <Content Include="Scripts\js\BanSach_JS.js" />
+    <Content Include="Scripts\js\jquery-1.4.1.min.js" />
+    <Content Include="Scripts\js\jquery-1.8.2.min.js" />
+    <Content Include="Scripts\js\jquery-1.8.3.js" />
+    <Content Include="Scripts\js\jquery-func.js" />
+    <Content Include="Scripts\js\jquery.jcarousel.pack.js" />
+    <Content Include="Scripts\js\jquery.min.js" />
+    <Content Include="Scripts\js\jquery.tabify.js" />
+    <Content Include="Scripts\js\jquery.ui.core.js" />
+    <Content Include="Scripts\js\jquery.ui.datepicker.js" />
+    <Content Include="Scripts\js\jquery.ui.widget.js" />
+    <Content Include="Scripts\js\jquery.validationEngine-vi.js" />
+    <Content Include="Scripts\js\jquery.validationEngine.js" />
+    <Content Include="Scripts\js\ShoppingCart_JS.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="themes\amelia\bootstrap.css" />
+    <Content Include="themes\amelia\bootstrap.min.css" />
+    <Content Include="themes\bootshop\bootstrap.min.css" />
+    <Content Include="themes\businessltd\bootstrap.min.css" />
+    <Content Include="themes\cerulean\bootstrap.min.css" />
+    <Content Include="themes\css\base.css" />
+    <Content Include="themes\css\bootstrap-responsive.min.css" />
+    <Content Include="themes\css\font-awesome-ie7.css" />
+    <Content Include="themes\css\font-awesome.css" />
+    <Content Include="themes\cyborg\bootstrap.min.css" />
+    <Content Include="themes\font\fontawesome-webfont.svg" />
+    <Content Include="themes\img\glyphicons-halflings-white.png" />
+    <Content Include="themes\img\glyphicons-halflings.png" />
+    <Content Include="themes\journal\bootstrap.min.css" />
+    <Content Include="themes\js\bootshop.js" />
+    <Content Include="themes\js\bootstrap.min.js" />
+    <Content Include="themes\js\google-code-prettify\prettify.css" />
+    <Content Include="themes\js\google-code-prettify\prettify.js" />
+    <Content Include="themes\js\jquery.js" />
+    <Content Include="themes\js\jquery.lightbox-0.5.js" />
+    <Content Include="themes\js\less.js" />
+    <Content Include="themes\readable\bootstrap.min.css" />
+    <Content Include="themes\simplex\bootstrap.min.css" />
+    <Content Include="themes\slate\bootstrap.min.css" />
+    <Content Include="themes\spacelab\bootstrap.min.css" />
+    <Content Include="themes\spruce\bootstrap.css" />
+    <Content Include="themes\spruce\bootstrap.min.css" />
+    <Content Include="themes\superhero\bootstrap.min.css" />
+    <Content Include="themes\switch\images\clr\amelia.png" />
+    <Content Include="themes\switch\images\clr\bootshop.png" />
+    <Content Include="themes\switch\images\clr\businessltd.png" />
+    <Content Include="themes\switch\images\clr\cerulean.png" />
+    <Content Include="themes\switch\images\clr\cyborg.png" />
+    <Content Include="themes\switch\images\clr\journal.png" />
+    <Content Include="themes\switch\images\clr\readable.png" />
+    <Content Include="themes\switch\images\clr\simplex.png" />
+    <Content Include="themes\switch\images\clr\slate.png" />
+    <Content Include="themes\switch\images\clr\spacelab.png" />
+    <Content Include="themes\switch\images\clr\spruce.png" />
+    <Content Include="themes\switch\images\clr\superhero.png" />
+    <Content Include="themes\switch\images\clr\united.png" />
+    <Content Include="themes\switch\images\hideme.png" />
+    <Content Include="themes\switch\images\pattern\pattern1.png" />
+    <Content Include="themes\switch\images\pattern\pattern10.png" />
+    <Content Include="themes\switch\images\pattern\pattern11.png" />
+    <Content Include="themes\switch\images\pattern\pattern12.png" />
+    <Content Include="themes\switch\images\pattern\pattern13.png" />
+    <Content Include="themes\switch\images\pattern\pattern14.png" />
+    <Content Include="themes\switch\images\pattern\pattern15.png" />
+    <Content Include="themes\switch\images\pattern\pattern16.png" />
+    <Content Include="themes\switch\images\pattern\pattern16~.png" />
+    <Content Include="themes\switch\images\pattern\pattern17.png" />
+    <Content Include="themes\switch\images\pattern\pattern17~.png" />
+    <Content Include="themes\switch\images\pattern\pattern18.png" />
+    <Content Include="themes\switch\images\pattern\pattern19.png" />
+    <Content Include="themes\switch\images\pattern\pattern19~.png" />
+    <Content Include="themes\switch\images\pattern\pattern2.png" />
+    <Content Include="themes\switch\images\pattern\pattern20.png" />
+    <Content Include="themes\switch\images\pattern\pattern20~.png" />
+    <Content Include="themes\switch\images\pattern\pattern3.png" />
+    <Content Include="themes\switch\images\pattern\pattern4.png" />
+    <Content Include="themes\switch\images\pattern\pattern5.png" />
+    <Content Include="themes\switch\images\pattern\pattern6.png" />
+    <Content Include="themes\switch\images\pattern\pattern7.png" />
+    <Content Include="themes\switch\images\pattern\pattern8.png" />
+    <Content Include="themes\switch\images\pattern\pattern9.png" />
+    <Content Include="themes\switch\images\styleTgl.png" />
+    <Content Include="themes\switch\theamswitcher.js" />
+    <Content Include="themes\switch\themeswitch.css" />
+    <Content Include="themes\united\bootstrap.min.css" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_LayoutClient.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\_RemoveAccountPartial.cshtml" />
+    <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Manage.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_LayoutShop.cshtml" />
+    <Content Include="Views\TrangChu\Index.cshtml" />
+    <Content Include="themes\font\fontawesome-webfont.eot" />
+    <Content Include="themes\font\fontawesome-webfont.ttf" />
+    <Content Include="themes\font\fontawesome-webfont.woff" />
+    <Content Include="themes\font\museo_slab_300-webfont.eot" />
+    <Content Include="themes\font\museo_slab_300-webfont.ttf" />
+    <Content Include="themes\font\museo_slab_500-webfont.eot" />
+    <Content Include="themes\font\museo_slab_500-webfont.ttf" />
+    <Content Include="themes\font\proximanova-webfont.eot" />
+    <Content Include="themes\font\proximanova-webfont.ttf" />
+    <Content Include="themes\less\accordion.less" />
+    <Content Include="themes\less\alerts.less" />
+    <Content Include="themes\less\amelia.less" />
+    <Content Include="themes\less\amelia\bootswatch.less" />
+    <Content Include="themes\less\amelia\variables.less" />
+    <Content Include="themes\less\bootshop.less" />
+    <Content Include="themes\less\bootshop\main.less" />
+    <Content Include="themes\less\bootshop\variables.less" />
+    <Content Include="themes\less\bootstrap.less" />
+    <Content Include="themes\less\breadcrumbs.less" />
+    <Content Include="themes\less\button-groups.less" />
+    <Content Include="themes\less\buttons.less" />
+    <Content Include="themes\less\carousel.less" />
+    <Content Include="themes\less\classified.less" />
+    <Content Include="themes\less\close.less" />
+    <Content Include="themes\less\code.less" />
+    <Content Include="themes\less\component-animations.less" />
+    <Content Include="themes\less\dropdowns.less" />
+    <Content Include="themes\less\font-awesome-ie7.less" />
+    <Content Include="themes\less\font-awesome.less" />
+    <Content Include="themes\less\forms.less" />
+    <Content Include="themes\less\grid.less" />
+    <Content Include="themes\less\hero-unit.less" />
+    <Content Include="themes\less\labels-badges.less" />
+    <Content Include="themes\less\layouts.less" />
+    <Content Include="themes\less\mixins.less" />
+    <Content Include="themes\less\modals.less" />
+    <Content Include="themes\less\navbar.less" />
+    <Content Include="themes\less\navs.less" />
+    <Content Include="themes\less\pager.less" />
+    <Content Include="themes\less\pagination.less" />
+    <Content Include="themes\less\popovers.less" />
+    <Content Include="themes\less\progress-bars.less" />
+    <Content Include="themes\less\reset.less" />
+    <Content Include="themes\less\responsive-1200px-min.less" />
+    <Content Include="themes\less\responsive-767px-max.less" />
+    <Content Include="themes\less\responsive-768px-979px.less" />
+    <Content Include="themes\less\responsive-navbar.less" />
+    <Content Include="themes\less\responsive-utilities.less" />
+    <Content Include="themes\less\responsive.less" />
+    <Content Include="themes\less\scaffolding.less" />
+    <Content Include="themes\less\simplex.less" />
+    <Content Include="themes\less\simplex\bootswatch.less" />
+    <Content Include="themes\less\simplex\variables.less" />
+    <Content Include="themes\less\sprites.less" />
+    <Content Include="themes\less\tables.less" />
+    <Content Include="themes\less\thumbnails.less" />
+    <Content Include="themes\less\tooltip.less" />
+    <Content Include="themes\less\type.less" />
+    <Content Include="themes\less\utilities.less" />
+    <Content Include="themes\less\variables.less" />
+    <Content Include="themes\less\wells.less" />
+    <Content Include="Views\Admin\Login.cshtml" />
+    <Content Include="Views\Shared\_LayoutPanelo.cshtml" />
+    <Content Include="Views\Admin\Panelo.cshtml" />
+    <Content Include="Views\TacGia\List.cshtml" />
+    <Content Include="Views\TacGia\Add.cshtml" />
+    <Content Include="Views\TacGia\Edit.cshtml" />
+    <Content Include="Views\TheLoai\List.cshtml" />
+    <Content Include="Views\TheLoai\Edit.cshtml" />
+    <Content Include="Views\NXB\List.cshtml" />
+    <Content Include="Views\NXB\Edit.cshtml" />
+    <Content Include="Views\DanhMuc\List.cshtml" />
+    <Content Include="Views\DanhMuc\Edit.cshtml" />
+    <Content Include="Views\KhachHang\List.cshtml" />
+    <Content Include="Views\KhachHang\Edit.cshtml" />
+    <Content Include="Views\NhanVien\List.cshtml" />
+    <Content Include="Views\NhanVien\Edit.cshtml" />
+    <Content Include="Views\Sach\List.cshtml" />
+    <Content Include="Views\Sach\Edit.cshtml" />
+    <Content Include="Views\SangTac\List.cshtml" />
+    <Content Include="Views\SangTac\Edit.cshtml" />
+    <Content Include="Views\HoaDon\List.cshtml" />
+    <Content Include="Views\HoaDon\Edit.cshtml" />
+    <Content Include="Views\ChiTietHoaDon\List.cshtml" />
+    <Content Include="Views\ChiTietHoaDon\Edit.cshtml" />
+    <Content Include="Views\QuangCao\List.cshtml" />
+    <Content Include="Views\QuangCao\Edit.cshtml" />
+    <Content Include="Views\TheLoai\Add.cshtml" />
+    <Content Include="Views\SangTac\Add.cshtml" />
+    <Content Include="Views\DanhMuc\Add.cshtml" />
+    <Content Include="Views\HoaDon\Add.cshtml" />
+    <Content Include="Views\Sach\Add.cshtml" />
+    <Content Include="Views\ChiTietHoaDon\Add.cshtml" />
+    <Content Include="Views\KhachHang\Add.cshtml" />
+    <Content Include="Views\NhanVien\Add.cshtml" />
+    <Content Include="Views\NXB\Add.cshtml" />
+    <Content Include="Views\QuangCao\Add.cshtml" />
+    <Content Include="Views\Common\_Footer.cshtml" />
+    <Content Include="Views\Common\_Nav.cshtml" />
+    <Content Include="Views\Common\_Slider.cshtml" />
+    <Content Include="Views\TrangChu\SachGiamGiaTrangChuPartialView.cshtml" />
+    <Content Include="Views\TrangChu\SachBanChayTrangChuPartialView.cshtml" />
+    <Content Include="Views\TrangChu\SachMoiTrangChuPartialView.cshtml" />
+    <Content Include="Views\TrangChu\IndexSachMoi.cshtml" />
+    <Content Include="Views\TrangChu\IndexSachGiamGia.cshtml" />
+    <Content Include="Views\TrangChu\IndexSachBanChay.cshtml" />
+    <Content Include="Views\TrangChu\IndexChiTietSach.cshtml" />
+    <Content Include="Views\TrangChu\DanhMucTrangChuPartialView.cshtml" />
+    <Content Include="Views\TrangChu\TheLoaiTrangChuPartialView.cshtml" />
+    <Content Include="Views\TrangChu\TacGiaTrangChuPartialView.cshtml" />
+    <Content Include="Views\TrangChu\NXBTrangChuPartialView.cshtml" />
+    <Content Include="Views\TrangChu\IndexSach_DanhMuc.cshtml" />
+    <Content Include="Views\KhachHangLogin\LoginKH.cshtml" />
+    <Content Include="Views\KhachHangLogin\DangKyKH.cshtml" />
+    <Content Include="Views\ShoppingCart\IndexShoppingCart.cshtml" />
+    <Content Include="Views\TrangChu\IndexSach_TheLoai.cshtml" />
+    <Content Include="Views\TrangChu\IndexSach_TacGia.cshtml" />
+    <Content Include="Views\TrangChu\IndexSach_NXB.cshtml" />
+    <Content Include="Views\TrangChu\NXBTrangChufullPartialView.cshtml" />
+    <Content Include="Views\TrangChu\TacGiaTrangChufullPartialView.cshtml" />
+    <Content Include="Views\TrangChu\TheLoaiTrangChufullPartialView.cshtml" />
+    <Content Include="Views\TrangChu\DanhMucTrangChufullPartialView.cshtml" />
+    <Content Include="Views\ShoppingCart\ActionFinish.cshtml" />
+    <Content Include="Views\ShoppingCart\ShoppingCartPartial.cshtml" />
+    <Content Include="Views\KhachHangLogin\ShowHoaDon.cshtml" />
+    <Content Include="Views\KhachHangLogin\ShowCTHD.cshtml" />
+    <Content Include="Views\ShoppingCart\CheckDonHang.cshtml" />
+    <Content Include="Views\KhachHangLogin\DoiMatKhau.cshtml" />
+    <Content Include="Views\KhachHangLogin\ThongTinKH.cshtml" />
+    <Content Include="Views\TrangChu\GioiThieu.cshtml" />
+    <Content Include="Views\TrangChu\LienHe.cshtml" />
+    <Content Include="Views\TrangChu\HuongDan.cshtml" />
+    <Content Include="Views\TrangChu\TimKiem.cshtml" />
+    <Content Include="Views\Common\_Header.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="themes\less\oregional\" />
+    <Folder Include="Views\Base\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>47198</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:47198/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

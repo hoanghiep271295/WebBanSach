@@ -1,0 +1,55 @@
+﻿@model ShopOnline.Entities.KhachHang
+@{
+    ViewBag.Title = "DoiMatKhau";
+    Layout = "~/Views/Shared/_LayoutClient.cshtml";
+}
+<link href="~/Content/css/shopping-cart.css" rel="stylesheet" />
+@using (Html.BeginForm("DoiMatKhau", "KhachHangLogin", FormMethod.Post))
+{
+
+    if (@ViewBag.loidoimk != null)
+       {
+            <div class="cartempty"><i class="fa fa-lightbulb-o fa-2x" aria-hidden="true"></i>
+                @ViewBag.loidoimk <i class="fa fa-frown-o" aria-hidden="true"></i>
+
+            </div>
+       }
+   
+   if (@ViewBag.loinhapmk != null)
+       {
+            <div class="cartempty"><i class="fa fa-lightbulb-o fa-2x" aria-hidden="true"></i>
+                @ViewBag.loinhapmk <i class="fa fa-frown-o" aria-hidden="true"></i>
+
+            </div>
+       }
+    <table class="doimk">
+        <tr style="font-size:20px;color:red;">
+            <td>Đổi mật khẩu</td>
+        </tr>
+        <tr>
+            <td>----------------------</td>
+            <td>----------------------------------------</td>
+        </tr>
+        <tr>
+            <td>Mật khẩu cũ:</td>
+            <td><input type="text" style="padding-left: 5px;" name="mkcu" /></td>
+        </tr>
+        <tr>
+            <td>Mật khẩu mới:</td>
+            <td><input type="text" style="padding-left: 5px;" name="MatKhau" /></td>
+            <td><span>
+                    @Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "error" })
+                </span>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Nhập lại mật khẩu mới:</td>
+            <td><input type="text" style="padding-left: 5px;" name="NhaplaimatKhau" /></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>@*<a href="@Url.Action("DoiMatKhau","KhachHangLogin")">*@<input type="submit" value="HOÀN TẤT" class="hoantat" style="cursor:pointer" />@*</a>*@</td>
+        </tr>
+    </table>
+}

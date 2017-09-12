@@ -1,0 +1,39 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>BookStore.com</title>
+    <link rel="stylesheet" href="~/Content/css/style.css" type="text/css" media="all" />
+    <link href="~/font-awesome-4.6.3/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/cssLogin/styleLoginKH.css" rel="stylesheet" />
+
+    <!-- JS -->
+    <script src="~/Scripts/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/js/jquery.jcarousel.pack.js" type="text/javascript"></script>
+    <script src="~/Scripts/js/jquery-func.js" type="text/javascript"></script>
+    <script src="~/Scripts/js/ShoppingCart_JS.js" type="text/javascript"></script>
+    <!-- End JS -->
+
+</head>
+<body>
+
+    <div class="shell">
+        @RenderPage("~/Views/Common/_Header.cshtml")
+        <!-- Main -->
+        <div id="main">
+            <div class="cl">&nbsp;</div>
+            @RenderBody()
+            <!-- Sidebar -->
+            
+            <!-- End Sidebar -->
+
+            <div class="cl">&nbsp;</div>
+        </div>
+        <!-- Footer -->
+        @RenderPage("~/Views/Common/_Footer.cshtml")
+        <!-- End Footer -->
+
+
+    </div>
+</body>
+</html>

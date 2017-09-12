@@ -1,0 +1,88 @@
+﻿@model IEnumerable<ShopOnline.Entities.ChiTietHoaĐon>
+
+@{
+    ViewBag.Title = "ShowCTHD";
+    Layout = "~/Views/Shared/_LayoutClient.cshtml";
+}
+
+<h1>CHI TIẾT HÓA ĐƠN</h1>
+
+<link href="~/Content/css/shopping-cart.css" rel="stylesheet" />
+<link href="~/Content/css/style.css" rel="stylesheet" />
+
+<!-- Main -->
+
+<div class="p_space"></div>
+<div id="main">
+    @*<div class="cl">&nbsp;</div>*@
+   
+    <!-- Shopping-cart -->
+    <div class="shopping-cart">
+        <div class="cart-title">
+            @*<div class="hinh-anh">
+                <h1>
+
+                    <a href="#"><img src="/images/Shopping-Cart-Icon.png" alt="" /></a>Giỏ hàng
+                </h1>
+            </div>*@
+           
+                
+        </div>
+        <div class="cart-detail">
+            <div class="cart-table">
+
+           
+                    <table class="data-table">
+
+                        <tr>
+                            <td class="header-table">Hình ảnh</td>
+                            <td class="header-table">Tên sách</td>
+                            <td class="header-table">Khuyến mại</td>
+                            <td class="header-table">Giá bán</td>
+                            <td class="header-table">Số lượng</td>
+                            <td class="header-table">Thành tiền</td>
+                            
+                        </tr>
+
+                        @{int i = 0;}
+                        @foreach (var item in Model)
+                        {
+
+                            if (i % 2 == 0)
+                            {
+
+                                
+                                <tr>
+                                    <td class="content-table" align="center"><img src="/images/Imagesbook/@item.Sach.Anh" width="70" height="100" /></td>
+                                    <td class="content-table">@item.Sach.TenSach</td>
+                                    <td class="content-table" align="center" style="color:blue;">@item.Sach.TinhTrangKM %</td>
+                                    <td class="content-table" align="center" style="color:red;">@item.GiaBan</td>
+                                    <td style="text-align: center;">@item.SoLuongBan</td>
+                                    <td class="content-table" align="center" style="color:red;">@item.ThanhTien</td>
+                                    
+                                </tr>
+                            }
+                            else
+                            {
+                                <tr class="doimau">
+                                    <td class="content-table" align="center"><img src="/images/Imagesbook/@item.Sach.Anh" width="70" height="100" /></td>
+                                    <td class="content-table">@item.Sach.TenSach</td>
+                                    <td class="content-table" align="center" style="color:blue;">@item.Sach.TinhTrangKM %</td>
+                                    <td class="content-table" align="center" style="color:red;">@item.GiaBan</td>
+                                    <td style="text-align: center;">@item.SoLuongBan</td>
+                                    <td class="content-table" align="center" style="color:red;">@item.ThanhTien</td>
+                                </tr>
+                            }
+                            i++;
+                      }
+                        
+                    </table>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+<!-- End Main -->
+

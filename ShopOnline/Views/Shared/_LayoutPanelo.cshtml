@@ -1,0 +1,73 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Trang quản trị</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/css/style-admin.css" />
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Belgrano' rel='stylesheet' type='text/css'>
+    <!-- jQuery file -->
+    @*<script src="~/Scripts/js/jquery.min.js"></script>*@
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/js/jquery.tabify.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        var $ = jQuery.noConflict();
+        $(function () {
+            $('#tabsmenu').tabify();
+            $(".toggle_container").hide();
+            $(".trigger").click(function () {
+                $(this).toggleClass("active").next().slideToggle("slow");
+                return false;
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <div id="panelwrap">
+
+        <div class="header">
+            <div class="title"><a href="#">Trang quản trị</a></div>
+
+            <div class="header_right"><h3 style="color:red;">Xin chào @Session["TenDangNhap"] ! </h3> <a href="#" class="settings">Settings</a> <a href="~/Admin/Logout" class="logout">Logout</a> </div>
+
+
+        </div>
+
+        <div class="submenu">
+
+        </div>
+
+        <div class="center_content">
+
+            <div id="right_wrap">
+                <div id="right_content">
+                    
+                    @RenderBody()
+                </div>
+            </div><!-- end of right content-->
+
+
+            <div class="sidebar" id="sidebar">
+                <h2>Danh sách các bảng</h2>
+                @RenderSection("DS", required: true)
+                
+
+
+
+
+            </div>
+
+
+            <div class="clear"></div>
+        </div> <!--end of center_content-->
+
+        <div class="footer">
+            Trang quản trị shop online !
+        </div>
+
+    </div>
+
+
+</body>
+</html>

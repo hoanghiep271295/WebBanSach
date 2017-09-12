@@ -1,0 +1,82 @@
+﻿@model ShopOnline.Entities.NXB
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutPanelo.cshtml";
+}
+@section DS
+{
+    <ul>
+        <li><a href="~/KhachHang/List">Khách hàng</a></li>
+        <li><a href="~/NhanVien/List">Nhân viên</a></li>
+        <li><a href="~/Sach/List">Sách</a></li>
+        <li><a href="~/TacGia/List">Tác giả</a></li>
+        <li><a href="~/TheLoai/List">Thể loại</a></li>
+        <li><a href="~/DanhMuc/List">Danh mục</a></li>
+        <li><a href="~/ChiTietHoaDon/List">Chi tiết hóa đơn</a></li>
+        <li><a href="~/HoaDon/List">Hóa đơn</a></li>
+        <li><a href="~/QuangCao/List">Quảng cáo</a></li>
+        <li><a href="~/SangTac/List">Sáng tác</a></li>
+        <li class="chon"><a href="~/NXB/List">Nhà xuất bản</a></li>
+    </ul>
+}
+
+
+@using (Html.BeginForm("EditAction", "NXB"))
+{
+    <ul id="tabsmenu" class="tabsmenu">
+        <li class="active"><a href="#tab1">Sửa </a></li>
+    </ul>
+    <div id="tab1" class="tabcontent">
+
+        <div class="form">
+
+            <div class="form_row">
+                
+                @Html.HiddenFor(model => model.MaNXB)
+            </div>
+
+            @*<div class="form_row">
+                <label>Tên nhà xuất bản:</label>
+                <input type="text" class="form_input" name="TenNXB" id="TenNXB" value="@Model.TenNXB" />
+                <span>@Html.ValidationMessageFor(model => model.TenNXB, "", new { @class = "error" })</span>
+            </div>*@
+
+            <div class="form_row">
+                <label>Tên NXB:</label>
+                @Html.EditorFor(model => model.TenNXB, new { @class = "form_input" })
+                <span>@Html.ValidationMessageFor(model => model.TenNXB, "", new { @class = "error" })</span>
+            </div>
+
+            @*<div class="form_row">
+                <label>SĐT:</label>
+                <input type="text" class="form_input" name="SDT" id="SDT" value="@Model.SDT" />
+                <span>@Html.ValidationMessageFor(model => model.SDT, "", new { @class = "error" })</span>
+            </div>*@
+
+            <div class="form_row">
+                <label>SĐT:</label>
+                @Html.EditorFor(model => model.SDT, new { @class = "form_input" })
+                <span>@Html.ValidationMessageFor(model => model.SDT, "", new { @class = "error" })</span>
+            </div>
+
+            @*<div class="form_row">
+                <label>Địa chỉ:</label>
+                <textarea class="form_textarea" name="DiaChi" id="DiaChi">@Model.DiaChi</textarea>
+                <span>@Html.ValidationMessageFor(model => model.DiaChi, "", new { @class = "error" })</span>
+            </div>*@
+
+            <div class="form_row">
+                <label>Địa chỉ:</label>
+                @Html.EditorFor(model => model.DiaChi, new { @class = "form_textarea" })
+                <span>@Html.ValidationMessageFor(model => model.DiaChi, "", new { @class = "error" })</span>
+            </div>
+
+            <div id="btn-submit">
+                <input type="submit" class="form_submit" value="Lưu" />
+            </div>
+
+            <div class="clear"></div>
+        </div>
+    </div>
+}

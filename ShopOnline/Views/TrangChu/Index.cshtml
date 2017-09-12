@@ -1,0 +1,117 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutShop.cshtml";
+}
+
+    
+        <!-- Content -->
+        <div id="content">
+
+            <!-- Content Slider -->
+            @RenderPage("~/Views/Common/_Slider.cshtml")
+            <!-- End Content Slider --
+            <!-- Products -->
+            
+
+                <!--></-->
+                <div class="products-titlebox">
+                    <div class="products-titlebox-left">
+                        <h2>
+                            <i class="fa fa-book" aria-hidden="true"></i>
+                            SÁCH MỚI VỀ
+                        </h2>
+                    </div>
+                    <div class="products-titlebox-right"><a href="~/TrangChu/IndexSachMoi"><h2>>> Xem thêm </h2></a></div>
+                </div>
+                <div class="products">
+                    <ul>
+                        @*<div class="p_space"></div>*@
+
+
+                        @Html.Action("SachMoiTrangChuPartialView", "TrangChu")
+
+                    </ul>
+                    <div class="cl">&nbsp;</div>
+                </div>
+            
+            <!--></-->
+                <div class="products-titlebox">
+                    <div class="products-titlebox-left">
+                        <h2>
+                            <i class="fa fa-book" aria-hidden="true"></i>
+                            SÁCH ĐƯỢC MUA NHIỀU NHẤT
+                        </h2>
+                    </div>
+                    <div class="products-titlebox-right"><a href="~/TrangChu/IndexSachBanChay"><h2>>> Xem thêm </h2></a></div>
+                </div>
+                <div class="products">
+                    <ul>
+
+                        <div class="p_space"></div>
+
+                        @Html.Action("SachBanChayTrangChuPartialView", "TrangChu")
+
+                    </ul>
+
+                </div>
+                <div class="cl">&nbsp;</div>
+                <!--></-->
+                <div class="products-titlebox">
+                    <div class="products-titlebox-left">
+                        <h2>
+                            <i class="fa fa-book" aria-hidden="true"></i>
+                            SÁCH GIẢM GIÁ
+                        </h2>
+                    </div>
+                    <div class="products-titlebox-right"><a href="~/TrangChu/IndexSachGiamGia"><h2>>> Xem thêm </h2></a></div>
+                </div>
+                <div class="products-2">
+                    <ul>
+                        <div class="p_space"></div>
+
+                        @Html.Action("SachGiamGiaTrangChuPartialView", "TrangChu")
+
+                    </ul>
+                    <div class="cl">&nbsp;</div>
+                </div>
+            
+            <!-- End Products -->
+            <div class="p_space"></div>
+        </div>
+
+        <!-- End Content -->
+
+        
+
+@*------------------------------------------------------------------------------------------------------------*@    
+    <!-- End Main -->
+    <!-- Side Full -->
+    @*<div class="side-full">
+
+        <div class="more-products">
+            <div class="more-products-holder">
+                <ul>
+                    <li><a href="#"><img src="/images/s1.png" alt="" /></a></li>
+                    <li><a href="#"><img src="/images/s.png" alt="" /></a></li>
+                    <li><a href="#"><img src="/images/s.png" alt="" /></a></li>
+                    <li><a href="#"><img src="/images/s.png" alt="" /></a></li>
+                    <li><a href="#"><img src="/images/s.png" alt="" /></a></li>
+                    <li><a href="#"><img src="/images/s.png" alt="" /></a></li>
+                    <li><a href="#"><img src="/images/s.png" alt="" /></a></li>
+                    <li><a href="#"><img src="/images/s.png" alt="" /></a></li>
+                    <li class="last"><a href="#"><img src="/images/s.png" alt="" /></a></li>
+                </ul>
+            </div>
+            <div class="more-nav">
+                <a href="#" class="prev">previous</a>
+                <a href="#" class="next">next</a>
+            </div>
+        </div>
+
+    </div>*@
+    <!-- End Side Full -->
+   
+
+
+<!-- End Shell -->

@@ -1,0 +1,113 @@
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<ShopOnline.Entities.Sach>
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_LayoutPanelo.cshtml";
+}
+
+<link rel="stylesheet" type="text/css" href="~/Content/css/style-admin.css" />
+<link href='http://fonts.googleapis.com/css?family=Belgrano' rel='stylesheet' type='text/css'>
+<!-- jQuery file -->
+<script src="~/Scripts/js/jquery.min.js"></script>
+<script src="~/Scripts/js/jquery.tabify.js" type="text/javascript" charset="utf-8"></script>
+<script>
+
+    function toggle(source) {
+        checkboxes = document.getElementsByName('studentRecordDeletebyId');
+        for (var i = 0, n = checkboxes.length; i < n; i++) {
+            checkboxes[i].checked = source.checked;
+        }
+    }
+
+    
+
+
+</script>
+
+@section DS
+{
+    <ul>
+        <li><a href="~/KhachHang/List">Khách hàng</a></li>
+        <li><a href="~/NhanVien/List">Nhân viên</a></li>
+        <li class="chon"><a href="~/Sach/List">Sách</a></li>
+        <li><a href="~/TacGia/List">Tác giả</a></li>
+        <li><a href="~/TheLoai/List">Thể loại</a></li>
+        <li><a href="~/DanhMuc/List">Danh mục</a></li>
+        <li><a href="~/ChiTietHoaDon/List">Chi tiết hóa đơn</a></li>
+        <li><a href="~/HoaDon/List">Hóa đơn</a></li>
+        <li><a href="~/QuangCao/List">Quảng cáo</a></li>
+        <li><a href="~/SangTac/List">Sáng tác</a></li>
+        <li><a href="~/NXB/List">Nhà xuất bản</a></li>
+    </ul>
+}
+
+@*@if (Session["TenDangNhap"] == null && Session["MatKhau"]==null)
+{
+
+    Response.Redirect("~/Admin/Login");
+}*@
+
+@using (Html.BeginForm("deleteRow", "Sach", FormMethod.Post))
+{
+
+<h2>Sách</h2>
+
+
+<table id="rounded-corner">
+    <thead>
+        <tr>
+            <th width="13"><input type="checkbox" id=" checkAll" onclick="toggle(this)" /></th>
+            <th colspan="2">Tên sách</th>
+            <th colspan="2">Ảnh</th>
+            <th colspan="1">Số lượng còn</th>
+            <th colspan="1">TT KM</th>
+            <th colspan="1">Đơn giá</th>
+            <th colspan="2">Thể loại</th>
+            <th colspan="2">Danh mục</th>
+            <th colspan="2">NXB</th>
+            <th colspan="4">Mô tả</th>
+            <th>Sửa</th>
+            <th>Xóa</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <td colspan="20"></td>
+        </tr>
+    </tfoot>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            
+                <tr class="odd">
+                    <td><input type="checkbox" class="checkBox" name="studentRecordDeletebyId" id="studentRecordDeletebyId" value="@item.MaSach" /> </td>
+                    <td colspan="2">@item.TenSach</td>
+                    <td colspan="2"><img src="/images/Imagesbook/@item.Anh" width="50" height="70"/></td>
+                    <td colspan="1">@item.SoLuongCon</td>
+                    <td colspan="1">@item.TinhTrangKM</td>
+                    <td colspan="1">@item.DonGia</td>
+                    <td colspan="2">@item.TheLoaiSach.TenLoaiSach</td>
+                    <td colspan="2">@item.DanhMuc.TenDanhMuc</td>
+                    <td colspan="2">@item.NXB.TenNXB</td>
+                    <td colspan="4">@item.Mota</td>
+                    <td><a href="~/Sach/Edit/@item.MaSach"><img src="/images/edit.png" alt="" title="" border="0" /></a></td>
+                    <td><a href="~/Sach/Delete/@item.MaSach"><img src="/images/trash.gif" alt="" title="" border="0" /></a></td>
+                </tr>
+            
+        }
+    </tbody>
+</table>
+    <div class="form_sub_buttons">
+        
+      <a><input type="submit" class="btnDelete-selected" value="Xóa" /></a>
+       
+    </div>
+}
+
+<div class="form_sub_buttons">
+
+    <a href="~/Sach/Add"><input type="submit" class="btnAdd" value="Thêm" /></a>
+
+</div>
+@Html.PagedListPager(Model, page => Url.Action("List", new { page }))

@@ -1,0 +1,67 @@
+﻿@model ShopOnline.Entities.ChiTietHoaĐon
+
+    @{
+        ViewBag.Title = "Add";
+        Layout = "~/Views/Shared/_LayoutPanelo.cshtml";
+    }
+
+    @section DS
+{
+        <ul>
+            <li><a href="~/KhachHang/List">Khách hàng</a></li>
+            <li><a href="~/NhanVien/List">Nhân viên</a></li>
+            <li><a href="~/Sach/List">Sách</a></li>
+            <li><a href="~/TacGia/List">Tác giả</a></li>
+            <li><a href="~/TheLoai/List">Thể loại</a></li>
+            <li><a href="~/DanhMuc/List">Danh mục</a></li>
+            <li class="chon"><a href="~/ChiTietHoaDon/List">Chi tiết hóa đơn</a></li>
+            <li><a href="~/HoaDon/List">Hóa đơn</a></li>
+            <li><a href="~/QuangCao/List">Quảng cáo</a></li>
+            <li><a href="~/SangTac/List">Sáng tác</a></li>
+            <li><a href="~/NXB/List">Nhà xuất bản</a></li>
+        </ul>
+    }
+@*@if (Session["TenDangNhap"] == null && Session["MatKhau"] == null)
+{
+
+    Response.Redirect("~/Admin/Login");
+}*@
+
+
+ @using (Html.BeginForm("AddAction", "ChiTietHoaDon"))
+{
+    <ul id="tabsmenu" class="tabsmenu">
+        <li class="active"><a href="#tab1">Thêm </a></li>
+    </ul>
+    <div id="tab1" class="tabcontent">
+
+        <div class="form">
+           
+                    <div class="error">@ViewBag.msg_err</div>
+                    <div class="form_row">
+                        <label>Mã hóa đơn:</label>
+                        @Html.DropDownList("MaHoaĐon", (SelectList)ViewBag.MaHoaĐon, new { @class = "form_input" })
+                    </div>
+
+                    <div class="form_row">
+                        <label>Tên sách:</label>
+
+                        @Html.DropDownList("MaSach", (SelectList)ViewBag.MaSach, new { @class = "form_input" })
+                    </div>
+
+                    <div class="form_row">
+                        <label>Số lượng:</label>
+                        <input type="text" class="form_input" name="SoLuongBan" id="SoLuongBan" />
+                        @*@Html.TextBoxFor(m=>m.SoLuongBan)*@
+                        <span>@Html.ValidationMessageFor(model => model.SoLuongBan, "", new { @class = "error" })</span>
+                    </div>
+            
+
+            <div id="btn-submit">
+                <input type="submit" class="form_submit" value="Thêm" />
+            </div>
+
+            <div class="clear"></div>
+        </div>
+    </div>
+}

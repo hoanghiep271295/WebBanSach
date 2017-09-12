@@ -1,0 +1,130 @@
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<ShopOnline.Entities.HoaDon>
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_LayoutPanelo.cshtml";
+}
+<link href="~/Content/css/jquery-ui.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="~/Content/css/style-admin.css" />
+<link href='http://fonts.googleapis.com/css?family=Belgrano' rel='stylesheet' type='text/css'>
+<link href="~/Content/css/demos.css" rel="stylesheet" />
+<link href="~/Content/css/jquery.ui.all.css" rel="stylesheet" />
+<!-- jQuery file -->
+<script src="~/Scripts/js/jquery.min.js"></script>
+<script src="~/Scripts/js/jquery.tabify.js" type="text/javascript" charset="utf-8"></script>
+
+<script src="~/Scripts/js/jquery-1.8.3.js"></script>
+<script src="~/Scripts/js/jquery.ui.core.js"></script>
+<script src="~/Scripts/js/jquery.ui.datepicker.js"></script>
+<script src="~/Scripts/js/jquery.ui.widget.js"></script>
+<script type="text/javascript">
+
+    $(function () {
+        $("#datepicker").datepicker({
+            changeMonth: true,
+            changeYear: true
+        });
+    });
+
+
+    var $ = jQuery.noConflict();
+    $(function () {
+        $('#tabsmenu').tabify();
+        $(".toggle_container").hide();
+        $(".trigger").click(function () {
+            $(this).toggleClass("active").next().slideToggle("slow");
+            return false;
+        });
+    });
+
+</script>
+
+
+
+<h2>Hóa đơn</h2>
+@section DS
+{
+    <ul>
+        <li><a href="~/KhachHang/List">Khách hàng</a></li>
+        <li><a href="~/NhanVien/List">Nhân viên</a></li>
+        <li><a href="~/Sach/List">Sách</a></li>
+        <li><a href="~/TacGia/List">Tác giả</a></li>
+        <li><a href="~/TheLoai/List">Thể loại</a></li>
+        <li><a href="~/DanhMuc/List">Danh mục</a></li>
+        <li><a href="~/ChiTietHoaDon/List">Chi tiết hóa đơn</a></li>
+        <li class="chon"><a href="~/HoaDon/List">Hóa đơn</a></li>
+        <li><a href="~/QuangCao/List">Quảng cáo</a></li>
+        <li><a href="~/SangTac/List">Sáng tác</a></li>
+        <li><a href="~/NXB/List">Nhà xuất bản</a></li>
+    </ul>
+}
+@*@if (Session["TenDangNhap"] == null && Session["MatKhau"] == null)
+{
+
+    Response.Redirect("~/Admin/Login");
+}*@
+
+@using (Html.BeginForm("deleteRow", "HoaDon", FormMethod.Post))
+{
+<table id="rounded-corner">
+    <thead>
+        <tr>
+            <th colspan="2">Mã hóa đơn</th>
+            <th colspan="2">Thời gian</th>
+            <th colspan="2">Khách hàng</th>
+            <th colspan="2">Tổng tiền</th>
+            <th colspan="2">Nhân viên</th>
+            <th>Sửa</th>
+            <th>Xóa</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <td colspan="20"></td>
+        </tr>
+    </tfoot>
+    <tbody>
+         @foreach (var item in Model)
+        {
+           if(item.MaNhanVien!=null)
+           {
+               <tr class="odd">
+                    <td colspan="2">@item.MaHoaDon</td>
+                    <td colspan="2">@item.ThoiGian</td>
+                    <td colspan="2">@item.KhachHang.TenKH</td>
+                    <td colspan="2">@item.TongTien</td>
+                    <td colspan="2">@item.NhanVien.TenNhanVien</td>
+                    <td><a href="~/HoaDon/Edit/@item.MaHoaDon "><img src="/images/edit.png" alt="" title="" border="0" /></a></td>
+                    <td><a href="~/HoaDon/Delete/@item.MaHoaDon "><img src="/images/trash.gif" alt="" title="" border="0" /></a></td>
+                </tr>
+           }
+           else
+           {
+               <tr class="odd">
+                    <td colspan="2">@item.MaHoaDon</td>
+                    <td colspan="2">@item.ThoiGian</td>
+                    <td colspan="2">@item.KhachHang.TenKH</td>
+                    <td colspan="2">@item.TongTien</td>
+                    <td colspan="2">null</td>
+                    <td><a href="~/HoaDon/Edit/@item.MaHoaDon "><img src="/images/edit.png" alt="" title="" border="0" /></a></td>
+                    <td><a href="~/HoaDon/Delete/@item.MaHoaDon "><img src="/images/trash.gif" alt="" title="" border="0" /></a></td>
+                </tr>
+           }     
+           
+        }
+    </tbody>
+</table>
+        <div class="form_sub_buttons">
+        
+      <a><input type="submit" class="btnDelete-selected" value="Xóa" /></a>
+       
+    </div>
+}
+    <div class="form_sub_buttons">
+
+        <a href="~/HoaDon/Add"><input type="submit" class="btnAdd" value="Thêm" /></a>
+
+    </div>
+@Html.PagedListPager(Model, page => Url.Action("List", new { page }))
+

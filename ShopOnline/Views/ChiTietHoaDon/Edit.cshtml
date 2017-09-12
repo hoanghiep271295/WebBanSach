@@ -1,0 +1,73 @@
+﻿@model ShopOnline.Entities.ChiTietHoaĐon
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutPanelo.cshtml";
+}
+@section DS
+{
+    <ul>
+        <li><a href="~/KhachHang/List">Khách hàng</a></li>
+        <li><a href="~/NhanVien/List">Nhân viên</a></li>
+        <li><a href="~/Sach/List">Sách</a></li>
+        <li><a href="~/TacGia/List">Tác giả</a></li>
+        <li><a href="~/TheLoai/List">Thể loại</a></li>
+        <li><a href="~/DanhMuc/List">Danh mục</a></li>
+        <li class="chon"><a href="~/ChiTietHoaDon/List">Chi tiết hóa đơn</a></li>
+        <li><a href="~/HoaDon/List">Hóa đơn</a></li>
+        <li><a href="~/QuangCao/List">Quảng cáo</a></li>
+        <li><a href="~/SangTac/List">Sáng tác</a></li>
+        <li><a href="~/NXB/List">Nhà xuất bản</a></li>
+    </ul>
+}
+@using (Html.BeginForm("EditAction", "ChiTietHoaDon"))
+{
+    
+    <ul id="tabsmenu" class="tabsmenu">
+        <li class="active"><a href="#tab1">Sửa </a></li>
+    </ul>
+    <div id="tab1" class="tabcontent">
+
+        <div class="form">
+
+            <div class="form_row">
+                @Html.ValidationSummary(true)
+                @Html.HiddenFor(model => model.MaHoaĐon)
+            </div>
+
+            <div class="form_row">
+                @Html.ValidationSummary(true)
+                @Html.HiddenFor(model => model.MaSach)
+            </div>
+
+            @*<div class="form_row">
+                <label>Tên sách:</label>
+                <input type="text" class="form_input" name="MaSach" id="MaSach" value="@Model.Sach.TenSach" />
+            </div>*@
+            <div class="form_row">
+                <label>Tên sách:</label>
+                @Html.DisplayFor(model => model.Sach.TenSach, new { @class = "form_input" })
+            </div>
+            
+                @*<div class="form_row">
+                    <label>Số lượng bán:</label>
+                    <input type="text" class="form_input" name="SoLuongBan" id="SoLuongBan" value="@Model.SoLuongBan" />
+                </div>*@
+
+            <div class="form_row">
+                <label>Số lượng bán:</label>
+                @Html.EditorFor(model => model.SoLuongBan, new { @class = "form_input" })
+                <span>@Html.ValidationMessageFor(model => model.SoLuongBan, "", new { @class = "error" })</span>
+            </div>
+
+               
+
+            <div id="btn-submit">
+                <input type="submit" class="form_submit" value="Lưu" />
+            </div>
+
+                <div class="clear"></div>
+            </div>
+    </div>
+}
+

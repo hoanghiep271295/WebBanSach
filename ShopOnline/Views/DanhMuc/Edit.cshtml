@@ -1,0 +1,49 @@
+﻿@model ShopOnline.Entities.DanhMuc
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutPanelo.cshtml";
+}
+@section DS
+{
+    <ul>
+        <li><a href="~/KhachHang/List">Khách hàng</a></li>
+        <li><a href="~/NhanVien/List">Nhân viên</a></li>
+        <li><a href="~/Sach/List">Sách</a></li>
+        <li><a href="~/TacGia/List">Tác giả</a></li>
+        <li><a href="~/TheLoai/List">Thể loại</a></li>
+        <li class="chon"><a href="~/DanhMuc/List">Danh mục</a></li>
+        <li><a href="~/ChiTietHoaDon/List">Chi tiết hóa đơn</a></li>
+        <li><a href="~/HoaDon/List">Hóa đơn</a></li>
+        <li><a href="~/QuangCao/List">Quảng cáo</a></li>
+        <li><a href="~/SangTac/List">Sáng tác</a></li>
+        <li><a href="~/NXB/List">Nhà xuất bản</a></li>
+    </ul>
+}
+@using (Html.BeginForm("EditAction", "DanhMuc"))
+{
+    @Html.HiddenFor(model => model.MaDanhMuc)
+    <ul id="tabsmenu" class="tabsmenu">
+        <li class="active"><a href="#tab1">Sửa </a></li>
+    </ul>
+    <div id="tab1" class="tabcontent">
+
+        <div class="form">
+
+            
+            <div class="form_row">
+                <label>Tên danh mục sách:</label>
+                
+                @Html.EditorFor(model => model.TenDanhMuc, new { @class="form_input" })
+                @Html.ValidationMessageFor(model => model.TenDanhMuc,"",new {@class="error"})
+            </div>
+            <div class="clear"></div>
+
+            <div  id="btn-submit">
+                <input type="submit" class="form_submit" value="Lưu" />
+            </div>
+
+            <div class="clear"></div>
+        </div>
+    </div>
+}

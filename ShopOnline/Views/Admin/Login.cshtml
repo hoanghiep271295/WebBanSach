@@ -1,0 +1,93 @@
+﻿@model ShopOnline.Models.LoginModel
+
+   <title>Panelo - Free Admin Template</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/css/style-admin.css" />
+    <link href='http://fonts.googleapis.com/css?family=Belgrano' rel='stylesheet' type='text/css' />
+    <link href="~/Content/css/template.css" rel="stylesheet" />
+    <link href="~/Content/css/validationEngine.jquery.css" rel="stylesheet" />
+<script src="~/Scripts/js/jquery.validationEngine-vi.js"></script>
+<script src="~/Scripts/js/jquery.validationEngine.js"></script>
+<script src="~/Scripts/js/jquery-1.8.2.min.js"></script>
+<script>
+    jQuery(document).ready(function () {
+        // binds form submission and fields to the validation engine
+        jQuery("#formID").validationEngine();
+    });
+</script>
+
+@using (Html.BeginForm("LoginAction", "Admin", FormMethod.Post, new { id = "formID" }))
+{ 
+  
+
+    <div id="loginpanelwrap">
+        
+        
+       
+        <div class="loginheader">
+            <div class="logintitle">Panelo Admin</div>
+        </div>
+        <div class="error">
+            @ViewBag.Error
+            @ViewBag.err
+            
+        </div>
+        <div class="loginform">
+            
+            @{
+                if(Model==null)
+                {
+                    <div class="loginform_row">
+                        <label>Username:</label>
+                        <input type="text" name="TenDangNhap" id="TenDangNhap" class="loginform_input" />
+                 
+                    </div>
+                    <div>@Html.ValidationMessageFor(model => model.TenDangNhap,"",new { @class = "error" }) </div>
+
+                    <div class="loginform_row">
+                        <label>Password:</label>
+                        <input type="password" class="loginform_input" name="MatKhau" id="MatKhau" data-val-required="Not"/>
+                
+                    </div>
+                    <div>@Html.ValidationMessageFor(model => model.MatKhau,"",new { @class = "error" }) </div>
+
+                    <div class="loginform_row">
+                        
+                        @Html.CheckBoxFor(model => model.rememberme, new { @class = "check"}) @Html.LabelFor(model => model.rememberme, "Remember me", new { @class="remember"})
+                       
+                
+                    </div>
+                }
+                else
+                {
+                    <div class="loginform_row">
+                        <label>Username:</label>
+                        <input type="text" name="TenDangNhap" id="TenDangNhap" class="loginform_input" value="@Model.TenDangNhap"/>
+                 
+                    </div>
+                    <div>@Html.ValidationMessageFor(model => model.TenDangNhap,"",new { @class = "error" }) </div>
+
+                    <div class="loginform_row">
+                        <label>Password:</label>
+                        <input type="password" class="loginform_input" name="MatKhau" id="MatKhau" data-val-required="Not" value="@Model.MatKhau"/>
+                
+                    </div>
+                    <div>@Html.ValidationMessageFor(model => model.MatKhau,"",new { @class = "error" }) </div>
+
+                    <div class="loginform_row">
+                        
+                        @Html.CheckBoxFor(model => model.rememberme, new { @class = "check"}) @Html.LabelFor(model => model.rememberme, "Remember me", new { @class = "remember"})
+                        
+                
+                    </div>
+                }
+            }
+
+
+            <div class="loginform_row">
+                <input type="submit" class="loginform_submit" value="Login" />
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+   
+}

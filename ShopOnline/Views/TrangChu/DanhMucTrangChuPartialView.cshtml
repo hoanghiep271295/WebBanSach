@@ -1,0 +1,11 @@
+﻿@using ShopOnline.Entities;
+@model List<DanhMuc>
+@{
+    foreach (var item in Model)
+    {
+        <li><img src="/images/cat.gif" alt="" />&nbsp;&nbsp;
+            <a href="@Url.Action("IndexSach_DanhMuc", "TrangChu", new { id = @item.MaDanhMuc }) ">@item.TenDanhMuc</a>
+        </li>
+    }
+     <li class="last"><a  class="showsach" id="showdm">>> Xem thêm...</a></li>
+}

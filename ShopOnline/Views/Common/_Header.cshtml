@@ -1,0 +1,67 @@
+﻿@*<div class="header-image">
+
+
+    </div>*@
+
+<!-- Header -->
+<div id="header">
+    <div class="logo">
+        <img src="~/images/book-store.png" height="80" width="500" />
+
+        <div class="user">
+            @if (Session["TenDangNhapKH"] != null && Session["MatKhauKH"] != null)
+            {
+
+                <a href="@Url.Action("ThongTinKH", "KhachHangLogin")">
+                    <img src="~/images/acc.jpg" height="40" width="40" style="margin-left: -12px; margin-top: 47px;border-radius:10px;" alt="" />
+                    
+                        @{
+                            if (@Session["TenDangNhapKH"].ToString().Length < 20)
+                            {
+                                <h4 style="margin-top: -18px; margin-left: 35px; font-family:Arial;">
+                                    Xin chào @Session["TenDangNhapKH"] !
+                                </h4>
+                            }
+                            else
+                            {
+                                
+                                <h4 style="margin-top: -18px; margin-left: 35px; font-family:Arial;">
+                                    @Session["TenDangNhapKH"].ToString().Substring(0, 20) ...
+                                </h4>
+                            }
+                        }
+                        
+
+                    
+                </a>
+                <div class="logout"><a href="@Url.Action("Logout","KhachHangLogin")">&nbsp; &nbsp;[Đăng xuất]</a></div>
+            }
+        </div>
+
+    </div>
+
+
+    <!-- Navigation -->
+    <div id="navigation">
+        <div class="search">
+            @using (Html.BeginForm("TimKiem", "TrangChu"))
+            {
+                @*@Html.TextBox("txtTimKiem", " ", htmlAttributes: new {@class = "TextBoxTimKiem", @placeholder = "Nhập từ khóa" })*@
+                <input class="TextBoxTimKiem" name="txtTimKiem" type="text" placeholder="Nhập từ khóa cần tìm" value="">
+                <div class="image-search">
+                    <button type="submit"><img src="/images/ic_search.png" alt="" /></button>
+                </div>
+            }
+        </div>
+        <div id="tabs">
+            <ul>
+                <li><a href="~/TrangChu/Index">Trang chủ</a></li>
+                <li><a href="@Url.Action("GioiThieu","TrangChu")">Giới Thiệu</a></li>
+                <li><a href="@Url.Action("Login","KhachHangLogin")">Tài khoản</a></li>
+                <li><a href="@Url.Action("LienHe", "TrangChu")">Liên hệ</a></li>
+                <li><a href="@Url.Action("HuongDan", "TrangChu")"><div id="last">Hướng dẫn</div></a></li>
+            </ul>
+        </div>
+        <!-- End Navigation -->
+    </div>
+    <!-- End Header -->

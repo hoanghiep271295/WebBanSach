@@ -1,0 +1,124 @@
+﻿@model ShopOnline.Entities.KhachHang
+
+
+@{
+    
+    Layout = "~/Views/Shared/_LayoutClient.cshtml";
+}
+<link href="~/Content/css/shopping-cart.css" rel="stylesheet" />
+<link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+
+<link href="~/Content/cssLogin/normalize.css" rel="stylesheet" />
+<link href="~/Content/cssLogin/styleLoginKH.css" rel="stylesheet" />
+<link href="~/Content/css/shopping-cart.css" rel="stylesheet" />
+
+<div class="logmod">
+    <div class="logmod__wrapper">
+        @*<span class="logmod__close">Close</span>*@
+        <div class="logmod__container">
+            <ul class="logmod__tabs">
+
+                <li data-tabtar="lgm-1"><a href="~/KhachHangLogin/DangKy">Đăng ký</a></li>
+            </ul>
+            <div class="logmod__tab-wrapper">
+                <div class="logmod__tab lgm-1">
+                    <div class="logmod__heading">
+                        <span class="logmod__heading-subtitle">* Nhập thông tin cá nhân <strong>để tạo tài khoản</strong></span>
+                    </div>
+                    <div class="logmod__form">
+                        @using (Html.BeginForm("DangKyKH", "KhachHangLogin", FormMethod.Post))
+                            {
+                            <div class="sminputs">
+                                <div class="input full">
+                                    <label class="string optional" for="user-name">Họ và tên *</label>
+                                    @Html.TextBox("txtTenKH")
+                                    @*<input class="string optional" id="TenKH" placeholder="Họ và tên" type="text" size="50" />
+                                        <span>@Html.ValidationMessageFor(model => model.TenKH, "", new { @class = "special" })</span>*@
+                                </div>
+                                <div class="input full">
+                                    <label class="string optional" for="user-name">SĐT *</label>
+                                    @*<input class="string optional" id="SoDienThoai" placeholder="SĐT" type="text" size="12" />
+                                        <span>@Html.ValidationMessageFor(model => model.SoDienThoai, "", new { @class = "special" })</span>*@
+                                    @Html.TextBox("txtSDT")
+                                </div>
+                                <div class="input full">
+                                    <label class="string optional" for="user-name">Ngày sinh *</label>
+                                    @*<input class="string optional" id="NgaySinh" placeholder="Ngày sinh" type="text" size="50" />
+                                        <span>@Html.ValidationMessageFor(model => model.NgaySinh, "", new { @class = "special" })</span>*@
+                                    @Html.TextBox("txtNgaySinh")
+                                </div>
+                                <div class="input full" style="height: 105px;">
+                                    <label class="string optional" for="user-name">Giới tính *</label>
+                                    @*<input type="radio" class="input-rad" name="GioiTinh" id="GioiTinh" value="False" /> Nữ
+                                        <input type="radio" class="input-rad" name="GioiTinh" id="GioiTinh" value="True" /> Nam*@
+                                    @*<select name="GioiTinh">
+                                            <option value="" selected>Nam</option>
+                                            <option value="Nam">Nam</option>
+                                            <option value="Nữ">Nữ</option>
+                                        </select>*@
+                                    @Html.TextBox("txtGioiTinh")
+                                    @*<span>@Html.ValidationMessageFor(model => model.GioiTinh, "", new { @class = "special" })</span>*@
+                                </div>
+                                <div class="input full">
+                                    <label class="string optional" for="user-name">Địa chỉ *</label>
+                                    @*<input class="string optional" id="DiaChi" placeholder="Địa chỉ" type="text" size="50" />
+                                        <span>@Html.ValidationMessageFor(model => model.DiaChi, "", new { @class = "special" })</span>*@
+                                    @Html.TextBox("txtDiaChi")
+                                </div>
+                                <div class="input full">
+                                    <label class="string optional" for="user-name">Email *</label>
+                                    @*<input class="string optional" id="Email" placeholder="Email" type="email" size="50" />
+                                        <span>@Html.ValidationMessageFor(model => model.Email, "", new { @class = "special" })</span>*@
+                                    @Html.TextBox("txtEmail")
+                                </div>
+                                <div class="input full">
+                                    <label class="string optional" for="user-name">Tên đăng nhập *</label>
+                                    @*<input class="string optional" id="TenDangNhap" placeholder="Tên đăng nhập" type="text" size="50" />
+                                        <span>@Html.ValidationMessageFor(model => model.TenDangNhap, "", new { @class = "special" })</span>*@
+                                    @Html.TextBox("txtTenDangNhap")
+                                </div>
+                            </div>
+                            <div class="sminputs">
+                                <div class="input string optional">
+                                    <label class="string optional" for="user-pw">Mật khẩu *</label>
+                                    @*<input class="string optional" id="MatKhau" placeholder="Mật khẩu phải hơn 8 ký tự" type="text" size="20"/>
+                                        <span>@Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "special" })</span>*@
+                                    @Html.TextBox("txtMatKhau")
+                                </div>
+                                @*<div class="input string optional">
+                                    <label class="string optional" for="user-pw-repeat">Nhập lại mật khẩu *</label>
+                                    @*<input class="string optional" id="MatKhau-repeat" placeholder="Nhập lại mật khẩu" type="text" size="20" />
+                                    <span>@Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "special" })</span>*@
+                                @*@Html.TextBox("txtNhapLaiMatKhau")
+                                    </div>*@
+                            </div>
+                            <div class="simform__actions">
+                                <input class="sumbit" name="commit" type="submit" value="Tạo tài khoản" />
+                            </div>
+                            <div class="input full" style="padding-left: 30px;">
+                                <span class="logmod__heading-subtitle">
+                                    <a href="@Url.Action("Login","KhachHangLogin")"> <i class="fa fa-reply" aria-hidden="true"></i>
+                                            <strong>Quay lại ?</strong></a>
+                                </span>
+
+                            </div>
+                            }
+                    </div>
+
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+<script src="~/Scripts/jsLogin/index.js"></script>
+
+
+
+@*</body>
+    </html>*@

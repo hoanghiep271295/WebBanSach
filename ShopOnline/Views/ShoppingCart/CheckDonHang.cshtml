@@ -1,0 +1,49 @@
+﻿@model ShopOnline.Entities.KhachHang
+@{
+    ViewBag.Title = "CheckDonHang";
+    Layout = "~/Views/Shared/_LayoutClient.cshtml";
+}
+
+<div class="checkdonhangleft"><img src="~/images/chuyenkhoan.JPG" height="380" width="300" /></div>
+<div class="checkdonhangcenter">
+    <table class="checkdonhang">
+        <tr style="font-size:20px">
+            <td style="font-size:20px;color:red;">Check đơn hàng</td>
+        </tr>
+        <tr>
+            <td>----------------------</td>
+            <td>----------------------</td>
+        </tr>
+        <tr>
+            <td>Họ tên:</td>
+            <td><span>@Model.TenKH</span></td>
+        </tr>
+        <tr>
+            <td>SĐT:</td>
+            <td><span>@Model.SoDienThoai</span></td>
+        </tr>
+        <tr>
+            <td>Địa chỉ:</td>
+            <td><span>@Model.DiaChi</span></td>
+        </tr>
+        <tr>
+            <td>Hình thức thanh toán:</td>
+
+        </tr>
+        <tr>
+            <td><input type="checkbox" />&nbsp;&nbsp;Thanh toán trục tiếp khi nhận hàng</td>
+
+        </tr>
+        <tr>
+            <td><input type="checkbox" />&nbsp;&nbsp;Thanh toán chuyển khoản</td>
+        </tr>
+        <tr>
+            <td><a href="@Url.Action("IndexShoppingCart","ShoppingCart")" id=""><input type="button" value="HỦY BỎ" class="hoantat" /></a></td>
+            <td><a href="@Url.Action("ThanhToan","ShoppingCart")" id="thanhtoan"><input type="button" value="HOÀN TẤT" class="hoantat" /></a></td>
+        </tr>
+    </table>
+</div>
+<div class="checkdonhangright"> 
+    <img src="~/images/thanhtoan2.jpg" height="388" width="380"/></div>
+
+

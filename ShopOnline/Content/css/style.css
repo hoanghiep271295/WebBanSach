@@ -1,0 +1,944 @@
+
+* {
+    padding: 0;
+    margin: 2;
+    outline: 0;
+}
+
+body {
+    background: #fff url(images/body.gif) repeat-x 0 0;
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    font-size: 12px;
+    line-height: 16px;
+    color: #636363;
+}
+
+input, textarea, select {
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    font-size: 12px;
+}
+
+.field {
+    background: #ebebeb;
+    border: solid 1px #dedede;
+    padding: 2px;
+}
+
+a img {
+    border: 0;
+}
+
+a {
+    color: #666;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+    a:hover {
+        color: #8b0000;
+        text-decoration: none;
+    }
+
+.left, .alignleft {
+    float: left;
+    display: inline;
+}
+
+.right, .alignright {
+    float: right;
+    display: inline;
+}
+
+.cl {
+    font-size: 0;
+    line-height: 0;
+    clear: both;
+    display: block;
+    height: 0;
+}
+
+.p_space {
+    width: 850px;
+    height: 15px;
+    padding: 5px 10px 0 20px;
+}
+
+.al {
+    text-align: left;
+}
+
+.ar {
+    text-align: right;
+}
+
+.ac {
+    text-align: center;
+}
+
+h1 {
+    font-size: 25px;
+    line-height: 14px;
+    text-transform: uppercase;
+    color: #000;
+}
+
+h2 {
+    font-size: 14px;
+    line-height: 16px;
+}
+
+h3 {
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    color: #000;
+}
+
+h4 {
+    font-size: 13px;
+    line-height: 14px;
+    
+    color: #000;
+}
+
+
+.shell {
+    width: 1100px;
+    margin: 0 auto;
+    padding: 0px;
+    background: #fff;
+}
+
+.logo {
+    height: 80px;
+    width: 1100px;
+    position: relative;
+}
+
+.user {
+    float: right;
+    margin-top: -18px;
+    height: 96px;
+    width:335px;
+}
+.logout
+{
+    float: right;
+    margin-top: -33px;
+    margin-right: 20px;
+    font-size: 13px;
+}
+.logout a{color:black;}
+.logout a:hover{color:red;}
+#header {
+    padding-top: 3px;
+    height: 47px;
+    background: white;
+    position: relative;
+    margin-top: 0px;
+}
+
+.header-image {
+    height: 80px;
+    width: 1100px;
+    position: relative;
+}
+
+.title {
+    width: 1100px;
+    background: white;
+    position: relative;
+    height: 75px;
+}
+
+.hello {
+    float: right;
+}
+
+.address {
+    float: left;
+    position: relative;
+    width: 300px;
+    height: 73px;
+    padding: 1px;
+}
+
+.name-store {
+    margin-left: 337px;
+    height: 74px;
+    width: 543px;
+}
+
+.icon {
+    margin-left: 139px;
+    height: 69px;
+    width: 500px;
+    float: bottom;
+}
+
+.search {
+    float: left;
+    margin-left: 5%;
+    padding-top: 12px;
+}
+
+    .search input {
+        height: 23px;
+        width: 200px;
+    }
+
+.image-search button {
+    margin-left: 206px;
+    margin-top: -11%;
+    height: 25px;
+    width: 28px;
+    background: white;
+}
+
+#navigation {
+    height: 47px;
+    width: 1100px;
+    background: #1C8D96;
+    border-radius: 10px;
+}
+
+    #navigation ul {
+        height: 40px;
+        float: right;
+        margin-top: 2px;
+        margin-right: 20px;
+    }
+
+        #navigation ul li {
+            height: 40px;
+            text-align: center;
+            display: inline;
+        }
+
+            #navigation ul li a {
+                border-radius: 0px;
+                font-size: 16px;
+                text-align: center;
+                float: left;
+                height: 43px;
+                width: 85px;
+                line-height: 45px;
+                text-decoration: none;
+                color: white;
+                padding: 0 15px;
+                font-family: 'Segoe UI';
+            }
+
+                #navigation ul li a.active,
+                #navigation ul li a:hover {
+                    color: black;
+                    background: #03A7B4;
+                }
+
+.gio-hang {
+    float: left;
+    width: 226px;
+    height: 80px;
+    border: solid 1px #dedede;
+    border-radius: 15px;
+}
+
+.hinh-anh img {
+    height: 60px;
+    width: 60px;
+    margin-left: 3%;
+    margin-top: 5px;
+}
+
+.noi-dung {
+    margin-left: 40%;
+    margin-top: -50px;
+}
+
+.text {
+    font-size: 18px;
+    padding: 5px;
+}
+
+    .text a {
+        text-decoration: none;
+    }
+
+.so-luong {
+    font-size: 15px;
+    padding-top: 3px;
+}
+
+#sidebar {
+    float: left;
+    width: 226px;
+    padding-top: 6px;
+}
+
+#content {
+    float: right;
+    width: 850px;
+}
+
+#main {
+    padding: 10px 0 0 0;
+}
+
+.box {
+    padding: 1px;
+    border: solid 1px #dedede;
+    margin-bottom: 10px;
+    border-radius: 15px;
+}
+
+    .box h2 {
+        background: #7f7f7f;
+        color: #fff;
+        font-weight: normal;
+        font-size: 15px;
+        padding: 0 5px;
+        position: relative;
+        height: 27px;
+        line-height: 27px;
+        border-radius: 5px;
+    }
+
+        .box h2 span {
+            position: absolute;
+            width: 10px;
+            height: 5px;
+            background: url(images/h2-arr.gif);
+            top: 27px;
+            right: 10px;
+            font-size: 0;
+            line-height: 0;
+        }
+
+.box-content {
+    padding: 5px;
+}
+
+a.bul {
+    background: url(images/bul.gif) no-repeat 0 center;
+    padding-left: 10px;
+}
+
+
+.categories {
+    min-height: 383px;
+}
+
+    .categories ul {
+        list-style-type: none;
+        font-size: 13px;
+    }
+
+        .categories ul li {
+            border-bottom: dashed 1px #ccc;
+            padding: 5px 0;
+        }
+
+            .categories ul li.last {
+                border-bottom: 0;
+                padding-bottom: 0;
+            }
+
+            .categories ul li a {
+                color: #5f5f5f;
+                text-decoration: none;
+                padding-left: 10px;
+            }
+
+                .categories ul li a:hover {
+                    color: red;
+                }
+
+#slider {
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+}
+
+#slider-holder {
+    width: 850px;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+}
+
+    #slider-holder .jcarousel-clip {
+        width: 850px;
+        height: 300px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    #slider-holder ul {
+        width: 850px;
+        height: 300px;
+        position: relative;
+        overflow: hidden;
+        list-style-type: none;
+    }
+
+        #slider-holder ul li {
+            width: 850px;
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+            float: left;
+        }
+
+#slider-nav {
+    position: absolute;
+    top: 280px;
+    left: 750px;
+    z-index: 2;
+}
+
+    #slider-nav a {
+        font-size: 0;
+        line-height: 0;
+        text-indent: -4000px;
+        width: 8px;
+        height: 8px;
+        border: solid 1px #8b0000;
+        background: #8b0000;
+        float: left;
+        margin-right: 5px;
+    }
+
+        #slider-nav a:hover,
+        #slider-nav a.active {
+            background: #fff;
+        }
+
+
+.products-titlebox {
+    background: red;
+    border-bottom: dashed 1px #665F5F;
+    padding-left: 10px;
+    padding-top: 20px;
+    width: 850px;
+    height: 50px;
+    background: no-repeat center;
+    text-align:;
+    font-size: 13px;
+    font-weight: inhert;
+    color: black;
+    line-height: 70px;
+}
+
+.products-titlebox-left {
+    float: left;
+    width: 600px;
+    height: 45px;
+}
+
+.products-titlebox-right {
+    float: right;
+    height: 45px;
+    width: 88px;
+}
+
+.products {
+}
+
+    .products ul {
+        list-style-type: none;
+    }
+
+        .products ul li {
+            position: relative;
+            padding: 5px;
+            float: left;
+            width: 170px;
+            margin-right: 30px;
+            height: 336px;
+            overflow: hidden;
+            border: solid 0.7px #dedede;
+        }
+
+        .products ul li:hover {
+            border: solid 0.7px red;
+        }
+
+.products-2 ul li {
+    position: relative;
+    padding: 5px;
+    float: left;
+    width: 170px;
+    margin-right: 30px;
+    height: 336px;
+    overflow: hidden;
+    border: solid 0.7px #dedede;
+}
+
+.products-2 ul li:hover {
+    border: solid 0.7px red;
+}
+
+.products ul li.last {
+    margin-right: 0;
+}
+
+.product-image {
+    height: 195px;
+    width: 166px;
+    border: 0.5px solid;
+    padding: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+    .product-image span {
+        background: #ae0d0d;
+        height: 25px;
+        width: 40px;
+        float: right;
+        color: white;
+        text-align: center;
+        font-size: 13px;
+    }
+
+    .product-image a img {
+        height: 195px;
+        width: 166px;
+    }
+
+.product-info {
+    position: absolute;
+    width: 170px;
+    height: 122px;
+    margin-left: 0px;
+}
+
+.product-name {
+    width: 170px;
+    height: 40px;
+    margin-left: 2px;
+}
+
+.product-price {
+    width: 162px;
+    height: 35px;
+    margin-left: 2px;
+    margin: 2px;
+    padding-left: 3px;
+}
+
+.product-price-2 {
+    width: 162px;
+    height: 38px;
+    margin-left: 2px;
+    color: black;
+    padding-left: 3px;
+}
+
+.product-action {
+    border-radius: 5px;
+    width: 170px;
+    height: 36px;
+    display: inline-block;
+    background: #1C8D96;
+    color: white;
+    transition: background 0.5s ease;
+}
+.product-action :hover{
+    background: #30A149;
+}
+    .product-action i {
+        height: 25px;
+        width: 25px;
+    }
+
+.text-cart {
+    margin-left: 70px;
+    margin-top: -15px;
+    color: white;
+}
+
+.product-info a :hover {
+    background: #03A7B4;
+    transition: background 0.5s ease;
+}
+
+.product-name :hover {
+    color: red;
+    background: white;
+}
+
+.cart a img {
+    margin-left: 80px;
+}
+
+i {
+    padding-left: 6px;
+}
+
+span.price {
+    color: #ea2222;
+    font-size: 13px;
+    float: right;
+}
+
+span.reduce {
+    color: #999999;
+    text-decoration: line-through;
+}
+
+.more-products {
+    border: solid 1px #dedede;
+    position: relative;
+    height: 114px;
+    overflow: hidden;
+}
+
+    .more-products ul {
+        list-style-type: none;
+        height: 94px;
+        position: relative;
+        overflow: hidden;
+        width: 805px;
+    }
+
+        .more-products ul li {
+            float: left;
+            width: 94px;
+            height: 94px;
+            border-right: dashed 1px #ccc;
+            padding: 0 10px;
+        }
+
+            .more-products ul li.last {
+                border-right: 0;
+            }
+
+.more-products-holder {
+    width: 804px;
+    height: 94px;
+    position: relative;
+    overflow: hidden;
+    top: 10px;
+    left: 70px;
+}
+
+    .more-products-holder .jcarousel-clip {
+        width: 804px;
+        height: 94px;
+        position: relative;
+        overflow: hidden;
+    }
+
+.more-nav {
+    font-size: 0;
+    line-height: 0;
+}
+
+    .more-nav a {
+        position: absolute;
+        top: 40px;
+        left: 0;
+        width: 30px;
+        height: 32px;
+        text-indent: -4000px;
+        z-index: 3;
+    }
+
+        .more-nav a.next {
+            background: url(images/next.gif);
+            left: 910px;
+        }
+
+        .more-nav a.prev {
+            background: url(images/prev.gif);
+            left: 20px;
+        }
+
+.cols {
+    padding: 15px 0;
+}
+
+.col {
+    float: left;
+    display: inline;
+    width: 217px;
+    margin-right: 30px;
+}
+
+.col-last {
+    margin-right: 0;
+}
+
+h3.ico {
+    background-repeat: no-repeat;
+    background-position: 0 2px;
+    padding: 6px 0 8px 30px;
+}
+
+h3.ico1 {
+    background-image: url(images/ico1.gif);
+}
+
+h3.ico2 {
+    background-image: url(images/ico2.gif);
+}
+
+h3.ico3 {
+    background-image: url(images/ico3.gif);
+}
+
+h3.ico4 {
+    background-image: url(images/ico4.gif);
+}
+
+#footer {
+    height: 51px;
+    background: #ebebeb;
+    white-space: nowrap;
+    line-height: 50px;
+    padding: 0 15px;
+    color: #7b7b7b;
+    margin-top: 10px;
+}
+
+    #footer a {
+        color: #7b7b7b;
+        text-decoration: none;
+    }
+
+        #footer a:hover {
+            color: #000;
+        }
+
+    #footer span {
+        padding: 0 2px;
+    }
+
+.price {
+    display: block;
+    font-size: 21px;
+    color: #8b0000;
+    line-height: 23px;
+}
+
+.more-products {
+    border: solid 1px #dedede;
+    position: relative;
+    height: 114px;
+    overflow: hidden;
+}
+
+    .more-products ul {
+        list-style-type: none;
+        height: 94px;
+        position: relative;
+        overflow: hidden;
+        width: 805px;
+    }
+
+        .more-products ul li {
+            float: left;
+            width: 94px;
+            height: 94px;
+            border-right: dashed 1px #ccc;
+            padding: 0 10px;
+        }
+
+            .more-products ul li.last {
+                border-right: 0;
+            }
+
+.more-products-holder {
+    width: 804px;
+    height: 94px;
+    position: relative;
+    overflow: hidden;
+    top: 10px;
+    left: 70px;
+}
+
+    .more-products-holder .jcarousel-clip {
+        width: 804px;
+        height: 94px;
+        position: relative;
+        overflow: hidden;
+    }
+
+.more-nav {
+    font-size: 0;
+    line-height: 0;
+}
+
+    .more-nav a {
+        position: absolute;
+        top: 40px;
+        left: 0;
+        width: 30px;
+        height: 32px;
+        text-indent: -4000px;
+        z-index: 3;
+    }
+
+        .more-nav a.next {
+            background: url(images/next.gif);
+            left: 910px;
+        }
+
+        .more-nav a.prev {
+            background: url(images/prev.gif);
+            left: 20px;
+        }
+
+.cols {
+    padding: 15px 0;
+}
+
+.col {
+    float: left;
+    display: inline;
+    width: 217px;
+    margin-right: 30px;
+}
+
+.col-last {
+    margin-right: 0;
+}
+
+h3.ico {
+    background-repeat: no-repeat;
+    background-position: 0 2px;
+    padding: 6px 0 8px 30px;
+}
+
+h3.ico1 {
+    background-image: url(images/ico1.gif);
+}
+
+h3.ico2 {
+    background-image: url(images/ico2.gif);
+}
+
+h3.ico3 {
+    background-image: url(images/ico3.gif);
+}
+
+h3.ico4 {
+    background-image: url(images/ico4.gif);
+}
+
+#footer {
+    height: 70px;
+    background: #ebebeb;
+    white-space: nowrap;
+    line-height: 50px;
+    padding: 0 15px;
+    color: #7b7b7b;
+    margin-top: 10px;
+}
+font{font-size:29px;}
+
+    #footer a {
+        color: #7b7b7b;
+        text-decoration: none;
+    }
+
+        #footer a:hover {
+            color: #000;
+        }
+
+    #footer span {
+        padding: 0 2px;
+    }
+
+.doimau {
+    background: #f0ebeb;
+}
+
+#main .finish-msg {
+    border: 2px solid #C5B610;
+    padding: 25px;
+    margin: 10px auto;
+    text-align: center;
+    font-size: 20px;
+    color: #C51A1A;
+    background: #D1ECF5;
+    border-radius: 5px;
+    box-shadow: 8px 7px #F5B7B7;
+}
+
+.km {
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    background: #FFCF00;
+    z-index: 100;
+    text-align: center;
+    border: 2px solid #B04747;
+    left: 120px;
+    top: 3px;
+    font-size: 16px;
+    color: #172699;
+    border-radius: 8px 0;
+    padding-top: 10px;
+    box-sizing: border-box;
+}
+
+.checkdonhang
+{
+    margin: auto;
+    font-size: 17px;
+    font-family: initial;
+    border: 1px solid;
+    padding: 12px;
+    
+}
+.checkdonhang tr{height:35px;}
+.hoantat
+{
+    height: 43px;
+    width: 94px;
+    background: rgb(165, 242, 146) none repeat scroll 0% 0%;
+    margin: 3px;
+    float: right;
+}
+.checkdonhangcenter{margin-right: 366px;}
+.checkdonhangleft{float:left;
+      width: 310px;
+}
+.checkdonhangright{margin-top: -379px;
+width: 300px;
+margin-left: 287px;
+margin-right: 48px;
+float:right;
+}
+.thongtinkhachhang
+{
+    margin: auto;
+    font-size: 17px;
+    font-family: initial;
+    border: 1px solid;
+    padding: 12px;
+    width: 548px;
+    height: 101px;
+    padding-left: 45px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.thongtinkhachhang tr{height:35px;}
+.thongtinkhachhang a{color:blue;}
+.thongtinkhachhang a:hover{color:red;border-bottom:red 1px solid;}
+
+.doimk
+{
+    margin: auto;
+    font-size: 17px;
+    font-family: initial;
+    border: 1px solid;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.doimk td input{height:35px;width:200px;}
+.doimk tr{height:40px;}
+

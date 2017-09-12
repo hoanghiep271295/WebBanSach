@@ -1,0 +1,71 @@
+﻿@model ShopOnline.Entities.KhachHang
+
+@{
+    ViewBag.Title = "ThongTinKH";
+    Layout = "~/Views/Shared/_LayoutClient.cshtml";
+}
+<link href="~/Content/css/shopping-cart.css" rel="stylesheet" />
+
+<div>
+    
+   @{
+       if (@ViewBag.doimk != null)
+    {
+        <div class="cartempty"><i class="fa fa-lightbulb-o fa-2x" aria-hidden="true"></i>
+            @ViewBag.doimk <i class="fa fa-smile-o" aria-hidden="true"></i>
+        </div>
+    }
+}
+    <table class="thongtinkhachhang">
+        <tr style="font-size:20px;color:red;">
+            <td>Thông tin khách hàng</td>
+        </tr>
+        <tr>
+            <td>----------------------</td>
+            <td>----------------------</td>
+        </tr>
+        <tr>
+            <td>Họ tên:</td>
+            <td><span>@Model.TenKH</span></td>
+        </tr>
+        <tr>
+            <td>SĐT:</td>
+            <td><span>@Model.SoDienThoai</span></td>
+        </tr>
+        <tr>
+            <td>Địa chỉ:</td>
+            <td><span>@Model.DiaChi</span></td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td><span>@Model.Email</span></td>
+        </tr>
+        <tr>
+            <td>Giới tính:</td>
+            @{
+                if (Model.GioiTinh == false)
+                {
+                    <td>Nữ</td>
+                }
+                else
+                {
+                    <td>Nam</td>
+                }
+            }
+        </tr>
+        <tr>
+            <td >
+                <a href="@Url.Action("DoiMK", "KhachHangLogin")">Đổi mật khẩu</a>
+            </td>
+        </tr>
+        <tr>
+            <td >
+                <a href="@Url.Action("ShowHoaDon", "KhachHangLogin", new { @idKH=@Model.MaKH})" id="thanhtoan">Show đơn hàng của bạn</a>
+            </td>
+        </tr>
+    </table>
+
+
+
+</div>
+

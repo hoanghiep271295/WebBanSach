@@ -1,0 +1,95 @@
+﻿@model IEnumerable<ShopOnline.Entities.HoaDon>
+
+@{
+    ViewBag.Title = "ShowHoaDon";
+    Layout = "~/Views/Shared/_LayoutClient.cshtml";
+}
+
+
+<link href="~/Content/css/shopping-cart.css" rel="stylesheet" />
+<link href="~/Content/css/style.css" rel="stylesheet" />
+
+<!-- Main -->
+@*<h1>Thông tin cá nhân cuả bạn</h1>*@
+@*@Html.Action("ThongTinKHPartial", "KhachHangLogin")*@
+<div class="p_space"></div>
+@{
+    if(Model.Count()==0)
+    {
+        <div class="cartempty"> Bạn chưa có hóa đơn mua hàng nào !!!</div>
+    }
+    else
+    {
+        <h1>Hóa đơn mua hàng cuả bạn</h1>
+<div id="main">
+    <div class="cl">&nbsp;</div>
+   
+    <div class="shopping-cart">
+        @*<div class="cart-title">
+            <div class="hinh-anh">
+                <h1>
+
+                    <a href="#"><img src="/images/Shopping-Cart-Icon.png" alt="" /></a>Giỏ hàng
+                </h1>
+            </div>
+            
+        </div>*@
+        <div class="cart-detail">
+            <div class="cart-table">
+
+                 <table class="data-table">
+
+                        <tr>
+                            <td class="header-table">Mã hóa đơn</td>
+                            <td class="header-table">Thời gian</td>
+                            <td class="header-table">Tổng tiền</td>
+                            <td class="header-table">Xem chi tiết</td>
+                        </tr>
+
+                        @{int i = 0;}
+                        @foreach (var item in Model)
+                        {
+
+                            if (i % 2 == 0)
+                            {
+                                <tr>
+                                    <td class="content-table" align="center">@item.MaHoaDon</td>
+                                    <td class="content-table">@item.ThoiGian</td>
+                                    <td class="content-table" align="center" style="color:red;">@item.TongTien</td>
+                                    <td class="content-table">
+                                        <a href="@Url.Action("ShowCTHD","KhachHangLogin" , new { id=item.MaHoaDon })" >
+                                            <img src="/images/detail-icon.png" alt="" height="20" width="20" />
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                            else
+                            {
+                                <tr class="doimau">
+                                    <td class="content-table" align="center">@item.MaHoaDon</td>
+                                    <td class="content-table">@item.ThoiGian</td>
+                                    <td class="content-table" align="center" style="color:red;">@item.TongTien</td>
+                                    <td class="content-table">
+                                        <a href="@Url.Action("ShowCTHD","KhachHangLogin" , new { id=item.MaHoaDon })" >
+                                            <img src="/images/detail-icon.png" alt="" height="20" width="20" />
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                            i++;
+                        }
+
+                    </table>
+                
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+    }
+}
+
+<!-- End Main -->
+

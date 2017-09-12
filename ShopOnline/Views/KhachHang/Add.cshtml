@@ -1,0 +1,231 @@
+﻿@model ShopOnline.Entities.KhachHang
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_LayoutPanelo.cshtml";
+}
+<link href="~/Content/css/jquery-ui.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="~/Content/css/style-admin.css" />
+<link href='http://fonts.googleapis.com/css?family=Belgrano' rel='stylesheet' type='text/css'>
+<link href="~/Content/css/demos.css" rel="stylesheet" />
+<link href="~/Content/css/jquery.ui.all.css" rel="stylesheet" />
+<!-- jQuery file -->
+<script src="~/Scripts/js/jquery.min.js"></script>
+<script src="~/Scripts/js/jquery.tabify.js" type="text/javascript" charset="utf-8"></script>
+
+<script src="~/Scripts/js/jquery-1.8.3.js"></script>
+<script src="~/Scripts/js/jquery.ui.core.js"></script>
+<script src="~/Scripts/js/jquery.ui.datepicker.js"></script>
+<script src="~/Scripts/js/jquery.ui.widget.js"></script>
+<script type="text/javascript">
+
+    $(function () {
+        $("#datepicker").datepicker({
+            changeMonth: true,
+            changeYear: true
+        });
+    });
+
+
+    var $ = jQuery.noConflict();
+    $(function () {
+        $('#tabsmenu').tabify();
+        $(".toggle_container").hide();
+        $(".trigger").click(function () {
+            $(this).toggleClass("active").next().slideToggle("slow");
+            return false;
+        });
+    });
+
+    function toggle(source) {
+        checkboxes = document.getElementsByName('studentRecordDeletebyId');
+        for (var i = 0, n = checkboxes.length; i < n; i++) {
+            checkboxes[i].checked = source.checked;
+        }
+    }
+
+
+</script>
+
+
+@section DS
+{
+    <ul>
+        <li class="chon"><a href="~/KhachHang/List">Khách hàng</a></li>
+        <li><a href="~/NhanVien/List">Nhân viên</a></li>
+        <li><a href="~/Sach/List">Sách</a></li>
+        <li><a href="~/TacGia/List">Tác giả</a></li>
+        <li><a href="~/TheLoai/List">Thể loại</a></li>
+        <li><a href="~/DanhMuc/List">Danh mục</a></li>
+        <li><a href="~/ChiTietHoaDon/List">Chi tiết hóa đơn</a></li>
+        <li><a href="~/HoaDon/List">Hóa đơn</a></li>
+        <li><a href="~/QuangCao/List">Quảng cáo</a></li>
+        <li><a href="~/SangTac/List">Sáng tác</a></li>
+        <li><a href="~/NXB/List">Nhà xuất bản</a></li>
+    </ul>
+}
+@*@if (Session["TenDangNhap"] == null && Session["MatKhau"] == null)
+    {
+
+        Response.Redirect("~/Admin/Login");
+    }*@
+
+
+@using (Html.BeginForm("AddAction", "KhachHang"))
+{
+    <ul id="tabsmenu" class="tabsmenu">
+        <li class="active"><a href="#tab1">Thêm </a></li>
+    </ul>
+    <div id="tab1" class="tabcontent">
+
+        <div class="form">
+            @{
+               if(@Session["Ok"] ==null)
+            {
+                <div class="form_row">
+                    <label>Tên khách hàng:</label>
+                    <input type="text" class="form_input" name="TenKH" id="TenKH" value="" />
+                    <span>@Html.ValidationMessageFor(model => model.TenKH, "", new { @class = "error" })</span>
+
+                </div>
+
+                <div class="form_row">
+                    <label>SĐT:</label>
+                    <input type="text" class="form_input" name="SoDienThoai" id="SoDienThoai" value="" />
+                    <span>@Html.ValidationMessageFor(model => model.SoDienThoai, "", new { @class = "error" })</span>
+                </div>
+
+                <div class="form_row">
+                    <label>Email:</label>
+                    <input type="text" class="form_input" name="Email" id="Email" value="" />
+                    <span>@Html.ValidationMessageFor(model => model.Email, "", new { @class = "error" })</span>
+                </div>
+
+                <div class="form_rad">
+                    <label>Giới tính:</label>
+                    <input type="radio" class="input-rad" name="GioiTinh" id="GioiTinh" value="False" /> Nữ
+                    <input type="radio" class="input-rad" name="GioiTinh" id="GioiTinh" value="True" /> Nam
+                    <span>@Html.ValidationMessageFor(model => model.GioiTinh, "", new { @class = "error" })</span>
+                </div>
+
+                <div class="form_row">
+                    <label>Địa chỉ:</label>
+                    <textarea class="form_textarea" name="DiaChi" id="DiaChi"></textarea>
+                    <span>@Html.ValidationMessageFor(model => model.DiaChi, "", new { @class = "error" })</span>
+                </div>
+
+                <div class="form_row">
+                    <label>Tên đăng nhập:</label>
+                    <input type="text" class="form_input" name="TenDangNhap" id="TenDangNhap" value="" />
+                    @*<div class="error">@ViewBag.msg_err</div>*@
+                    <span>
+                        @ViewBag.msg_err
+                        @Html.ValidationMessageFor(model => model.TenDangNhap, "", new { @class = "error" })
+                    </span>
+                </div>
+
+                <div class="form_row">
+                    <label>Mật khẩu:</label>
+                    <input type="text" class="form_input" name="MatKhau" id="MatKhau" value="" />
+                    @*<div class="error">@ViewBag.msg_err</div>*@
+                    <span>
+                        @Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "error" })
+                    </span>
+                </div>
+
+                <div class="form_row">
+                    <label>Ngày sinh:</label>
+                    <input type="text" id="datepicker" class="form_input" name="NgaySinh">
+                    <span>@Html.ValidationMessageFor(model => model.NgaySinh, "", new { @class = "error" })</span>
+                </div>
+            }
+            else
+            {
+                 <div class="form_row">
+                    <label>Tên khách hàng:</label>
+                    @Html.EditorFor(model => model.TenKH, new { @class = "form_input" })
+                    <span>@Html.ValidationMessageFor(model => model.TenKH, "", new { @class = "error" })</span>
+                </div>
+ 
+           
+                <div class="form_row">
+                    <label>Email:</label>
+                    @Html.EditorFor(model => model.Email, new { @class = "form_input" })
+                    <span>@Html.ValidationMessageFor(model => model.Email, "", new { @class = "error" })</span>
+                </div>
+
+           
+                <div class="form_row">
+                    <label>Địa chỉ:</label>
+                    @Html.EditorFor(model => model.DiaChi, new { @class = "form_input" })
+                    <span>@Html.ValidationMessageFor(model => model.DiaChi, "", new { @class = "error" })</span>
+                </div>
+
+
+                <div class="form_row">
+                    <label>SĐT</label>
+                    @Html.EditorFor(model => model.SoDienThoai, new { @class = "form_input" })
+                    <span>@Html.ValidationMessageFor(model => model.SoDienThoai, "", new { @class = "error" })</span>
+                </div>
+
+            
+
+                <div class="form_row">
+                    <label>Tên đăng nhập:</label>
+                    @Html.EditorFor(model => model.TenDangNhap, new { @class = "form_input" })
+                    <span>@Html.ValidationMessageFor(model => model.TenDangNhap, "", new { @class = "error" })</span>
+                </div>
+
+                <div class="form_rad">
+                <label>Giới tính:</label>
+                @*@{
+                        if (Model.GioiTinh == false)
+                        {
+                               @: <input type="radio" class="input-rad" name="GioiTinh" id="GioiTinh" value="False" checked /> Nữ
+                                @:<input type="radio" class="input-rad" name="GioiTinh" id="GioiTinh" value="True" /> Nam
+                        }
+                        else
+                        {
+                               @: <input type="radio" class="input-rad" name="GioiTinh" id="GioiTinh" value="False" />Nữ
+                               @: <input type="radio" class="input-rad" name="GioiTinh" id="GioiTinh" value="True" checked />Nam
+                        }
+                }*@
+                    <input type="radio" class="input-rad" name="GioiTinh" id="GioiTinh" value="False" /> Nữ
+                    <input type="radio" class="input-rad" name="GioiTinh" id="GioiTinh" value="True" /> Nam
+                 <span>@Html.ValidationMessageFor(model => model.GioiTinh, "", new { @class = "error" })</span>
+
+                </div>
+
+           
+                <div class="form_row">
+                    <label>Ngày sinh:</label>
+                    <input type="text" id="datepicker" class="form_input" name="NgaySinh">
+                    <span>@Html.ValidationMessageFor(model => model.NgaySinh, "", new { @class = "error" })</span>
+                    @*<label>Ngày sinh:</label>
+
+                    <div class="input-bg">
+                        @{
+                            if (Model == null)
+                            {
+                                <input type="text" id="datepicker" class="form_input" name="NgaySinh" value="">
+                            }
+                            else
+                            {
+                                <input type="text" id="datepicker" class="form_input" name="NgaySinh" value="@Model.NgaySinh">
+                            }
+                        }
+                        <span>@Html.ValidationMessageFor(model => model.NgaySinh, "", new { @class = "error" })</span>
+                    </div>*@
+                </div>
+            }
+          }
+            
+            <div id="btn-submit">
+                <input type="submit" class="form_submit" value="Thêm" />
+            </div>
+
+                <div class="clear"></div>
+
+            </div>
+        </div>
+            }
